@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --yes create-next-app@14 . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)",
+      "Bash(npm install *)",
+      "Bash(npm config *)",
+      "Read(//Users/vantis/**)",
+      "Bash(npm view *)",
+      "Bash(npm run *)",
+      "Bash(curl *)",
+      "Bash(kill bx6lcyrj1 *)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(lsof -ti:3000)",
+      "Bash(xargs -r kill)",
+      "Bash(npm ls *)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1440,2400 --screenshot=/tmp/suzzie-desktop.png http://localhost:3000/)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1440,3600 --screenshot=/tmp/suzzie-full.png http://localhost:3000/)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --no-pdf-header-footer --print-to-pdf=/tmp/suzzie.pdf --print-to-pdf-no-header --virtual-time-budget=5000 http://localhost:3000/)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --print-to-pdf=/tmp/suzzie-wide.pdf --no-pdf-header-footer --virtual-time-budget=5000 --print-to-pdf-paper-width=15 --print-to-pdf-paper-height=11 http://localhost:3000/)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --print-to-pdf=/tmp/suzzie-xl.pdf --no-pdf-header-footer --virtual-time-budget=5000 --print-to-pdf-paper-width=18 --print-to-pdf-paper-height=8 http://localhost:3000/)"
+    ]
+  }
+}

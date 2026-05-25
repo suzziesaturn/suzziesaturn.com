@@ -1,0 +1,31 @@
+[
+  {
+    "id": "radarskin-slides",
+    "name": "Radarskin Slides",
+    "price": 25,
+    "category": "Footwear",
+    "image": "/images/products/slides-1.png",
+    "description": "Everyday slides with a radar-sharp profile. Cushioned footbed, unisex sizing, unbothered attitude.",
+    "sizes": [
+      { "label": "US M5/W7 (EU 36)", "priceId": "price_1TalmPJiWX4PgmRvBRnvOZlF" },
+      { "label": "US M8/W10 (EU 40)", "priceId": "price_1TamZSJiWX4PgmRvP8OJf3DD" },
+      { "label": "US M8.5/W10.5 (EU 41)", "priceId": "price_1TamZhJiWX4PgmRvPiXB9XoB" },
+      { "label": "US M9.5/W11.5 (EU 43)", "priceId": "price_1Tama9JiWX4PgmRvkFVDGzB" },
+      { "label": "US M10/W12 (EU 44)", "priceId": "price_1TamaQJiWX4PgmRvFWjOT8T8" },
+      { "label": "US M10.5/W12.5 (EU 45)", "priceId": "price_1TamaqJiWX4PgmRvYhBfh37" },
+      { "label": "US M11/W13 (EU 46)", "priceId": "price_1TambJiWX4PgmRvGA0Pq3zV" },
+      { "label": "US M11.5/W13.5 (EU 47)", "priceId": "price_1TambfJiWX4PgmRvgd5yhdRp" }
+    ]
+  },
+  {
+    "id": "suzzie-bandana",
+    "name": "Suzzie Bandana",
+    "price": 20,
+    "category": "Accessories",
+    "image": "/images/products/bandana-1.png",
+    "description": "100% cotton bandana with the Saturn motif. One size, infinite ways to wear it.",
+    "sizes": [
+      { "label": "One Size", "priceId": "price_1TanLcJiWX4PgmRvN6biQdJW" }
+    ]
+  }
+]

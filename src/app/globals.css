@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  /* Brand rule: body copy never drops below weight 500. */
+  font-weight: 500;
+}
+
+::selection {
+  background-color: #000000;
+  color: #ffffff;
+}
