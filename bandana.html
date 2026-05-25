@@ -111,24 +111,14 @@
   </div>
 </div>
 
-<script>
-  document.getElementById('buyBtn').addEventListener('click', async () => {
-    const btn = document.getElementById('buyBtn');
-    btn.disabled = true;
-    btn.textContent = 'Loading...';
-    try {
-      const res = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ priceId: 'price_1TanLcJiWX4PgmRvN6biQdJW' })
-      });
-      const data = await res.json();
-      window.location.href = data.url;
-    } catch (e) {
-      btn.disabled = false;
-      btn.textContent = 'Buy Now — $20';
-      alert('Something went wrong. Try again.');
-    }
+<!-- SUZZIE BANDANA v2 -->
+  document.getElementById('buyBtn').addEventListener('click', () => {
+    const sz_cart = JSON.parse(localStorage.getItem('sz_cart') || '[]');
+    const existing = sz_cart.find(i => i.priceId === 'price_1TanLcJiWX4PgmRvN6biQdJW');
+    if (existing) existing.qty++;
+    else sz_cart.push({ priceId: 'price_1TanLcJiWX4PgmRvN6biQdJW', name: 'Suzzie Bandana', variant: '', price: 20, img: '/images/suzzie-bandana-1.png', qty: 1 });
+    localStorage.setItem('sz_cart', JSON.stringify(sz_cart));
+    window.location.href = '/';
   });
 </script>
 </body>

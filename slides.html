@@ -231,27 +231,22 @@
   });
 
   // Checkout
-  document.getElementById('buyBtn').addEventListener('click', async () => {
-    if (!selectedPrice) {
-      document.getElementById('errMsg').style.display = 'block';
-      return;
-    }
-    const btn = document.getElementById('buyBtn');
-    btn.disabled = true;
-    btn.textContent = 'Loading...';
-    try {
-      const res = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ priceId: selectedPrice })
-      });
-      const data = await res.json();
-      window.location.href = data.url;
-    } catch (e) {
-      btn.disabled = false;
-      btn.textContent = 'Add to Cart — $25';
-      alert('Something went wrong. Try again.');
-    }
+  document.getElementById('buyBtn').addEventListener('click', () => {
+    if (!selectedPrice) { document.getElementById('errMsg').style.display = 'block'; return; }
+    const selectedBtn = document.querySelector('.size-btn.selected');
+    window.parent.postMessage({ type: 'addToCart', item: {
+      priceId: selectedPrice,
+      name: 'Radarskin Slides',
+      variant: selectedBtn ? selectedBtn.textContent : '',
+      price: 25,
+      img: '/images/radarskin-slides-1.png'
+    }}, '*');
+    const sz_cart = JSON.parse(localStorage.getItem('sz_cart') || '[]');
+    const existing = sz_cart.find(i => i.priceId === selectedPrice);
+    if (existing) existing.qty++;
+    else sz_cart.push({ priceId: selectedPrice, name: 'Radarskin Slides', variant: selectedBtn ? selectedBtn.textContent : '', price: 25, img: '/images/radarskin-slides-1.png', qty: 1 });
+    localStorage.setItem('sz_cart', JSON.stringify(sz_cart));
+    window.location.href = '/';
   });
 </script>
 </body>
