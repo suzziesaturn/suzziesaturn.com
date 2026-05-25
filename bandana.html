@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Suzzie Bandana — SUZZIESATURN</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Archivo:wght@500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --black: #000; --white: #fff; --header-h: 60px; }
+  body { background: var(--white); color: var(--black); font-family: 'Archivo', sans-serif; font-weight: 500; }
+
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white); border-bottom: 1px solid var(--black);
+    height: var(--header-h); display: flex; align-items: center;
+    justify-content: space-between; padding: 0 24px;
+  }
+  .logo { font-family: 'Bodoni Moda', serif; font-weight: 700; font-size: clamp(13px,2vw,17px); letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); text-decoration: none; }
+  .header-icons { display: flex; align-items: center; gap: 20px; }
+  .header-icons a, .header-icons button { background: none; border: none; cursor: pointer; color: var(--black); padding: 4px; display: flex; align-items: center; text-decoration: none; font-family: 'Archivo', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; transition: opacity 0.2s; }
+  .header-icons a:hover, .header-icons button:hover { opacity: 1; }
+  .header-icons svg { width: 20px; height: 20px; }
+
+  .product-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: calc(100vh - var(--header-h));
+  }
+  @media (min-width: 768px) {
+    .product-wrap { grid-template-columns: 1fr 1fr; }
+  }
+
+  .product-image {
+    background: #f0f0f0;
+    aspect-ratio: 1;
+  }
+  @media (min-width: 768px) {
+    .product-image { aspect-ratio: unset; position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); }
+  }
+  .product-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  .product-info {
+    padding: clamp(32px,5vw,64px);
+    display: flex; flex-direction: column; gap: 32px;
+  }
+  .product-breadcrumb { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.4; }
+  .product-breadcrumb a { color: var(--black); text-decoration: none; }
+  .product-title { font-family: 'Bodoni Moda', serif; font-weight: 900; font-size: clamp(36px,5vw,64px); letter-spacing: -0.02em; text-transform: uppercase; line-height: 1; }
+  .product-price-display { font-family: 'Archivo', sans-serif; font-size: clamp(18px,2vw,22px); font-weight: 600; letter-spacing: 0.05em; }
+
+  .one-size {
+    display: inline-block;
+    border: 1px solid var(--black);
+    font-family: 'Archivo', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 10px 20px;
+    background: var(--black); color: var(--white);
+    width: fit-content;
+  }
+
+  .btn-buy {
+    width: 100%;
+    background: var(--black); color: var(--white);
+    border: none;
+    font-family: 'Archivo', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    padding: 20px; cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .btn-buy:hover { opacity: 0.8; }
+  .btn-buy:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  .product-details { border-top: 1px solid #eee; padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .detail-row { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+  .detail-row span:first-child { opacity: 0.4; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="/">Suzziesaturn</a>
+  <div class="header-icons">
+    <a href="/">← Shop</a>
+    <button aria-label="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div class="product-wrap">
+  <div class="product-image">
+    <img src="/images/suzzie-bandana-1.png" alt="Suzzie Bandana"/>
+  </div>
+
+  <div class="product-info">
+    <p class="product-breadcrumb"><a href="/">Shop</a> / Suzzie Bandana</p>
+    <h1 class="product-title">Suzzie Bandana</h1>
+    <p class="product-price-display">$20.00</p>
+    <div><span class="one-size">One Size</span></div>
+    <button class="btn-buy" id="buyBtn">Buy Now — $20</button>
+    <div class="product-details">
+      <div class="detail-row"><span>Size</span><span>One Size Fits Most</span></div>
+      <div class="detail-row"><span>Ships</span><span>3–5 Business Days</span></div>
+      <div class="detail-row"><span>Returns</span><span>30 Days</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('buyBtn').addEventListener('click', async () => {
+    const btn = document.getElementById('buyBtn');
+    btn.disabled = true;
+    btn.textContent = 'Loading...';
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ priceId: 'price_1TanLcJiWX4PgmRvN6biQdJW' })
+      });
+      const data = await res.json();
+      window.location.href = data.url;
+    } catch (e) {
+      btn.disabled = false;
+      btn.textContent = 'Buy Now — $20';
+      alert('Something went wrong. Try again.');
+    }
+  });
+</script>
+</body>
+</html>
