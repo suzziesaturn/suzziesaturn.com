@@ -2,19 +2,18 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, Archivo } from "next/font/google";
 import "./globals.css";
 
-// Display face — high-contrast editorial serif (Vogue-style mastheads).
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
+  weight: ["400", "700", "900"],
   style: ["normal", "italic"],
   variable: "--font-bodoni",
   display: "swap",
-  // next/font has no fallback-metric data for Bodoni Moda; skip the lookup to silence the warning.
   adjustFontFallback: false,
 });
 
-// Body face — clean grotesque. Body copy is set at weight 500 minimum (see globals.css).
 const archivo = Archivo({
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
   variable: "--font-archivo",
   display: "swap",
 });
