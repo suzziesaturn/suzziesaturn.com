@@ -8,21 +8,25 @@ export default function ProductPageClient({ product }: { product: Product }) {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [cartMsg, setCartMsg] = useState("");
 
   const images = product.images?.length ? product.images : [product.image];
   const sizes = product.sizes;
   const isSingleSize = sizes.length === 1;
 
+  function getSelectedPriceId() {
+    const size = selectedSize || sizes[0]?.label;
+    return sizes.find((s) => s.label === size)?.priceId || sizes[0]?.priceId;
+  }
+
   async function handleBuyNow() {
     if (!isSingleSize && !selectedSize) { setError(true); return; }
-    const size = selectedSize || sizes[0]?.label;
-    const priceId = sizes.find((s) => s.label === size)?.priceId || sizes[0]?.priceId;
     setLoading(true);
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ priceId }),
+        body: JSON.stringify({ priceId: getSelectedPriceId() }),
       });
       const data = await res.json();
       if (data.url) window.location.href = data.url;
@@ -31,6 +35,19 @@ export default function ProductPageClient({ product }: { product: Product }) {
       console.error(err);
       setLoading(false);
     }
+  }
+
+  function handleAddToCart() {
+    if (!isSingleSize && !selectedSize) { setError(true); return; }
+    const size = selectedSize || sizes[0]?.label;
+    const priceId = getSelectedPriceId();
+    const cart = JSON.parse(localStorage.getItem("sz_cart") || "[]");
+    const existing = cart.find((i: any) => i.priceId === priceId);
+    if (existing) existing.qty++;
+    else cart.push({ priceId, name: product.name, variant: size, price: product.price, img: images[0], qty: 1 });
+    localStorage.setItem("sz_cart", JSON.stringify(cart));
+    setCartMsg("Added to cart");
+    setTimeout(() => setCartMsg(""), 2000);
   }
 
   return (
@@ -97,10 +114,16 @@ export default function ProductPageClient({ product }: { product: Product }) {
             {error && <p className="w-full mt-1 font-sans text-[11px] font-semibold uppercase tracking-[0.1em] text-red-600">Please select a size.</p>}
           </div>
 
-          <button onClick={handleBuyNow} disabled={loading}
-            className="w-full bg-black text-white font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-opacity hover:opacity-80 disabled:opacity-40 select-text">
-            {loading ? "Loading..." : `Buy Now — $${product.price}`}
-          </button>
+          <div className="flex flex-col gap-3">
+            <button onClick={handleBuyNow} disabled={loading}
+              className="w-full bg-black text-white font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-opacity hover:opacity-80 disabled:opacity-40">
+              {loading ? "Loading..." : `Buy Now — $${product.price}`}
+            </button>
+            <button onClick={handleAddToCart}
+              className="w-full bg-white text-black border border-black font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-opacity hover:opacity-60">
+              {cartMsg || "Add to Cart"}
+            </button>
+          </div>
 
           <div className="border-t border-[#eee] pt-6 flex flex-col gap-3">
             {product.details.map(({ label, value }) => (
