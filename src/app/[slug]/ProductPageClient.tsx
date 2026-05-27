@@ -38,7 +38,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 min-h-[calc(100vh-60px)]">
-        <div className="relative bg-[#111] aspect-square md:aspect-auto md:sticky md:top-[60px] md:h-[calc(100vh-60px)]">
+        <div className="relative bg-[#e8e8e8] aspect-square md:aspect-auto md:sticky md:top-[60px] md:h-[calc(100vh-60px)]">
           {images.map((src, i) => (
             <img key={i} src={src} alt={product.name}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[400ms] ${i === activeImg ? "opacity-100" : "opacity-0"}`}
