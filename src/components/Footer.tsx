@@ -11,6 +11,7 @@ export default function Footer() {
         className="grid grid-cols-1 sm:grid-cols-[2fr_1fr_1fr_1fr] gap-12 sm:gap-8"
         style={{ marginBottom: "clamp(64px,8vw,100px)" }}
       >
+        {/* Stay Connected */}
         <div>
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Stay Connected</p>
           <p className="font-display italic font-normal leading-[1.4] mb-7 opacity-85" style={{ fontSize: "clamp(16px,2vw,20px)" }}>Stay off the radar.</p>
@@ -24,6 +25,8 @@ export default function Footer() {
             <span className="font-sans text-[10px] font-medium tracking-[0.08em] opacity-30">Ships within 3–5 business days</span>
           </div>
         </div>
+
+        {/* Shop */}
         <div>
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Shop</p>
           <ul className="flex flex-col gap-3">
@@ -32,6 +35,8 @@ export default function Footer() {
             ))}
           </ul>
         </div>
+
+        {/* Info */}
         <div>
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Info</p>
           <ul className="flex flex-col gap-3">
@@ -40,18 +45,39 @@ export default function Footer() {
             ))}
           </ul>
         </div>
+
+        {/* Follow */}
         <div>
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Follow</p>
           <ul className="flex flex-col gap-3">
-            {[["@suzziesaturn","https://www.instagram.com/suzziesaturn/"],["Instagram","https://www.instagram.com/suzziesaturn/"],["TikTok","https://www.tiktok.com/@suzziesaturn"],["X / Twitter","https://x.com/suzziesaturn"]].map(([label,href]) => (
-              <li key={label}><Link href={href} className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline">{label}</Link></li>
+            {[
+              ["@suzziesaturn", "https://www.instagram.com/suzziesaturn/"],
+              ["Instagram", "https://www.instagram.com/suzziesaturn/"],
+              ["TikTok", "https://www.tiktok.com/@suzziesaturn"],
+              ["X / Twitter", "https://x.com/suzziesaturn"],
+              ["YouTube", "https://www.youtube.com/@suzziesaturn"],
+              ["Tumblr", "https://suzziesaturn.tumblr.com/"],
+              ["Pinterest", "https://www.pinterest.com/suzziesaturn/"],
+            ].map(([label, href]) => (
+              <li key={label}>
+                <Link href={href} target="_blank" rel="noopener noreferrer" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline">
+                  {label}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
       </div>
-      <div className="font-display font-black uppercase leading-none w-full text-center border-t border-[#222] overflow-hidden whitespace-nowrap tracking-[-0.02em]" style={{ fontSize: "clamp(40px,10vw,130px)", padding: "clamp(24px,4vw,40px) 0" }}>
+
+      {/* Wordmark */}
+      <div
+        className="font-display font-black uppercase leading-none w-full text-center border-t border-[#222] overflow-hidden whitespace-nowrap tracking-[-0.02em]"
+        style={{ fontSize: "clamp(40px,10vw,130px)", padding: "clamp(24px,4vw,40px) 0" }}
+      >
         Suzziesaturn
       </div>
+
+      {/* Bottom bar */}
       <div className="border-t border-[#222] py-5 flex items-center justify-between gap-4 flex-wrap">
         <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] opacity-35">&copy; {year} Suzziesaturn LLC</span>
         <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] opacity-35">Black-Owned &middot; Est. 2017</span>
