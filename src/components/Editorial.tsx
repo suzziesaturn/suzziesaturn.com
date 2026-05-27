@@ -3,7 +3,7 @@ export default function Editorial() {
     <div
       className="relative flex items-end overflow-hidden bg-[#111]"
       style={{
-        minHeight: "clamp(280px, 43.75vw, 600px)",
+        aspectRatio: "4/5",
         padding: "clamp(32px,5vw,64px)",
       }}
     >
