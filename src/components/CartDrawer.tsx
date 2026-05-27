@@ -3,7 +3,7 @@ import { useCart } from "@/lib/cart";
 import { useState } from "react";
 
 export default function CartDrawer() {
-  const { items, open, closeCart, updateQty, remove, total, count } = useCart();
+  const { items, open, closeCart, updateQty, remove, total } = useCart();
   const [loading, setLoading] = useState(false);
 
   async function handleCheckout() {

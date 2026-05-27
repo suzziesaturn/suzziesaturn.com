@@ -18,7 +18,7 @@ export async function POST(req: Request) {
       cancel_url: "https://suzziesaturn.com",
     });
     return NextResponse.json({ url: session.url });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 });
   }
 }
