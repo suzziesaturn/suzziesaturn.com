@@ -60,7 +60,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.25em] opacity-40">
             <Link href="/" className="text-black no-underline">Shop</Link> / {product.name}
           </p>
-          <h1 className="font-display font-black uppercase leading-[1] tracking-[-0.02em]" style={{ fontSize: "clamp(32px,4vw,56px)" }}>
+          <h1 className="font-display font-black uppercase leading-[1] tracking-[-0.02em]" style={{ fontSize: "clamp(36px,5vw,64px)" }}>
             {product.name}
           </h1>
           <p className="font-sans font-semibold tracking-[0.05em]" style={{ fontSize: "clamp(18px,2vw,22px)" }}>
