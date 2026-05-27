@@ -17,7 +17,7 @@ export default function Header() {
             ))}
           </nav>
           <div className="flex items-center gap-5">
-            <button type="button" aria-label="Search" className="hidden transition-opacity hover:opacity-50 md:flex">
+            <button type="button" aria-label="Search" className="transition-opacity hover:opacity-50">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7"/><line x1="17" y1="17" x2="22" y2="22"/></svg>
             </button>
             <button type="button" aria-label="Open cart" className="relative transition-opacity hover:opacity-50">
