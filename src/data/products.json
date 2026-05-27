@@ -5,12 +5,14 @@
     "price": 25,
     "category": "Footwear",
     "image": "/images/products/slides-1.png",
-    "images": [
-      "/images/products/slides-1.png",
-      "/images/products/slides-2.png",
-      "/images/products/slides-3.png"
-    ],
+    "images": ["/images/products/slides-1.png", "/images/products/slides-2.png", "/images/products/slides-3.png"],
     "description": "Everyday slides with a radar-sharp profile. Cushioned footbed, unisex sizing, unbothered attitude.",
+    "details": [
+      { "label": "Material", "value": "EVA Foam / Rubber" },
+      { "label": "Sizing", "value": "Unisex EU 36–47" },
+      { "label": "Ships", "value": "3–5 Business Days" },
+      { "label": "Returns", "value": "30 Days" }
+    ],
     "sizes": [
       { "label": "US M5/W7 (EU 36)", "priceId": "price_1TalmPJiWX4PgmRvBRnvOZlF" },
       { "label": "US M8/W10 (EU 40)", "priceId": "price_1TamZSJiWX4PgmRvP8OJf3DD" },
@@ -28,10 +30,13 @@
     "price": 20,
     "category": "Accessories",
     "image": "/images/products/bandana-1.png",
-    "images": [
-      "/images/products/bandana-1.png"
-    ],
+    "images": ["/images/products/bandana-1.png"],
     "description": "100% cotton bandana with the Saturn motif. One size, infinite ways to wear it.",
+    "details": [
+      { "label": "Size", "value": "One Size Fits Most" },
+      { "label": "Ships", "value": "3–5 Business Days" },
+      { "label": "Returns", "value": "30 Days" }
+    ],
     "sizes": [
       { "label": "One Size", "priceId": "price_1TanLcJiWX4PgmRvN6biQdJW" }
     ]

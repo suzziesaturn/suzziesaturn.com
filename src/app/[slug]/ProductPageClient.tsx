@@ -9,10 +9,11 @@ export default function ProductPageClient({ product }: { product: Product }) {
   const [error, setError] = useState(false);
 
   const images = product.images?.length ? product.images : [product.image];
+  const sizes = product.sizes;
+  const isSingleSize = sizes.length === 1;
 
   function handleAddToCart() {
-    const sizes = product.sizes as { label: string; priceId: string }[];
-    if (sizes.length > 1 && !selectedSize) { setError(true); return; }
+    if (!isSingleSize && !selectedSize) { setError(true); return; }
     const size = selectedSize || sizes[0]?.label;
     const priceId = sizes.find((s) => s.label === size)?.priceId || sizes[0]?.priceId;
     const cart = JSON.parse(localStorage.getItem("sz_cart") || "[]");
@@ -66,28 +67,27 @@ export default function ProductPageClient({ product }: { product: Product }) {
             ${product.price}.00
           </p>
 
-          {(product.sizes as any[]).length > 1 && (
-            <div>
-              <p className="font-sans text-[10px] font-bold uppercase tracking-[0.25em] opacity-50 mb-3">Select Size</p>
-              <div className="flex flex-wrap gap-2">
-                {(product.sizes as any[]).map((s: any) => (
-                  <button key={s.label} onClick={() => { setSelectedSize(s.label); setError(false); }}
-                    className={`border font-sans text-[10px] font-bold uppercase tracking-[0.1em] px-[14px] py-[10px] cursor-pointer transition-all whitespace-nowrap
-                      ${selectedSize === s.label ? "bg-black text-white border-black" : "bg-transparent text-black border-[#ccc] hover:border-black"}`}>
-                    {s.label}
-                  </button>
-                ))}
-              </div>
-              {error && <p className="mt-2 font-sans text-[11px] font-semibold uppercase tracking-[0.1em] text-red-600">Please select a size.</p>}
+          <div>
+            <p className="font-sans text-[10px] font-bold uppercase tracking-[0.25em] opacity-50 mb-3">Select Size</p>
+            <div className="flex flex-wrap gap-2">
+              {sizes.map((s) => (
+                <button key={s.label}
+                  onClick={() => { setSelectedSize(s.label); setError(false); }}
+                  className={`border font-sans text-[10px] font-bold uppercase tracking-[0.1em] px-[14px] py-[10px] cursor-pointer transition-all whitespace-nowrap
+                    ${isSingleSize || selectedSize === s.label ? "bg-black text-white border-black" : "bg-transparent text-black border-[#ccc] hover:border-black"}`}>
+                  {s.label}
+                </button>
+              ))}
             </div>
-          )}
+            {error && <p className="mt-2 font-sans text-[11px] font-semibold uppercase tracking-[0.1em] text-red-600">Please select a size.</p>}
+          </div>
 
           <button onClick={handleAddToCart} className="w-full bg-black text-white font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-opacity hover:opacity-80">
-            Add to Cart — ${product.price}
+            Buy Now — ${product.price}
           </button>
 
           <div className="border-t border-[#eee] pt-6 flex flex-col gap-3">
-            {[["Material","EVA Foam / Rubber"],["Sizing","Unisex EU 36–47"],["Ships","3–5 Business Days"],["Returns","30 Days"]].map(([label, value]) => (
+            {product.details.map(({ label, value }) => (
               <div key={label} className="flex justify-between font-sans text-[11px] font-semibold uppercase tracking-[0.1em]">
                 <span className="opacity-40">{label}</span><span>{value}</span>
               </div>

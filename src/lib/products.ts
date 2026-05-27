@@ -10,6 +10,7 @@ export interface Product {
   image: string;
   images: string[];
   description: string;
+  details: { label: string; value: string }[];
   sizes: { label: string; priceId: string }[];
   hasImage: boolean;
 }
