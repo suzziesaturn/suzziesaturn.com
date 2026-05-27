@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Archivo } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/lib/cart";
+import CartDrawer from "@/components/CartDrawer";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -20,16 +22,18 @@ const archivo = Archivo({
 
 export const metadata: Metadata = {
   title: "SUZZIESATURN — Live Your Dreams In Real Time",
-  description:
-    "Black-owned streetwear from the DMV. Editorial pieces, made in real time. Est. 2017.",
+  description: "Black-owned streetwear from the DMV. Editorial pieces, made in real time. Est. 2017.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${bodoni.variable} ${archivo.variable}`}>
-      <body className="bg-white text-black antialiased">{children}</body>
+      <body className="bg-white text-black antialiased">
+        <CartProvider>
+          {children}
+          <CartDrawer />
+        </CartProvider>
+      </body>
     </html>
   );
 }

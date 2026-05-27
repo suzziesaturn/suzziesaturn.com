@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { Product } from "@/lib/products";
+import { useCart } from "@/lib/cart";
 
 export default function ProductPageClient({ product }: { product: Product }) {
   const [activeImg, setActiveImg] = useState(0);
@@ -9,14 +10,16 @@ export default function ProductPageClient({ product }: { product: Product }) {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [cartMsg, setCartMsg] = useState("");
+  const { addItem, openCart } = useCart();
 
   const images = product.images?.length ? product.images : [product.image];
   const sizes = product.sizes;
   const isSingleSize = sizes.length === 1;
 
-  function getSelectedPriceId() {
-    const size = selectedSize || sizes[0]?.label;
-    return sizes.find((s) => s.label === size)?.priceId || sizes[0]?.priceId;
+  function getSelected() {
+    const label = selectedSize || sizes[0]?.label;
+    const priceId = sizes.find((s) => s.label === label)?.priceId || sizes[0]?.priceId;
+    return { label, priceId };
   }
 
   async function handleBuyNow() {
@@ -26,7 +29,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ priceId: getSelectedPriceId() }),
+        body: JSON.stringify({ priceId: getSelected().priceId }),
       });
       const data = await res.json();
       if (data.url) window.location.href = data.url;
@@ -39,14 +42,9 @@ export default function ProductPageClient({ product }: { product: Product }) {
 
   function handleAddToCart() {
     if (!isSingleSize && !selectedSize) { setError(true); return; }
-    const size = selectedSize || sizes[0]?.label;
-    const priceId = getSelectedPriceId();
-    const cart = JSON.parse(localStorage.getItem("sz_cart") || "[]");
-    const existing = cart.find((i: any) => i.priceId === priceId);
-    if (existing) existing.qty++;
-    else cart.push({ priceId, name: product.name, variant: size, price: product.price, img: images[0], qty: 1 });
-    localStorage.setItem("sz_cart", JSON.stringify(cart));
-    setCartMsg("Added to cart");
+    const { label, priceId } = getSelected();
+    addItem({ priceId, name: product.name, variant: label, price: product.price, img: images[0] });
+    setCartMsg("Added!");
     setTimeout(() => setCartMsg(""), 2000);
   }
 
@@ -56,7 +54,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
         <Link href="/" className="font-display text-[clamp(13px,2vw,17px)] font-bold uppercase tracking-[0.12em]">Suzziesaturn</Link>
         <div className="flex items-center gap-5">
           <Link href="/" className="font-sans text-[11px] font-bold uppercase tracking-[0.15em] opacity-60 hover:opacity-100 transition-opacity">← Shop</Link>
-          <button type="button" aria-label="Cart" className="transition-opacity hover:opacity-50">
+          <button type="button" aria-label="Cart" onClick={openCart} className="transition-opacity hover:opacity-50">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
             </svg>
@@ -125,7 +123,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
             </button>
           </div>
 
-          <div className="border-t border-[#eee] pt-6 flex flex-col">
+          <div className="border-t border-[#eee] pt-6 flex flex-col gap-3">
             {product.details.map(({ label, value }) => (
               <div key={label} className="flex justify-between font-sans text-[11px] font-semibold uppercase tracking-[0.1em]">
                 <span className="opacity-40">{label}</span><span>{value}</span>
