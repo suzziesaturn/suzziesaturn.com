@@ -116,7 +116,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
 
           <div className="flex flex-col">
             <button onClick={handleBuyNow} disabled={loading}
-              className="w-full bg-black text-white font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-all duration-200 hover:bg-white hover:text-black ring-1 ring-inset ring-black disabled:opacity-40">
+              className="w-full bg-black text-white font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-all duration-200 hover:bg-[#222] disabled:opacity-40">
               {loading ? "Loading..." : `Buy Now — $${product.price}`}
             </button>
             <button onClick={handleAddToCart}
