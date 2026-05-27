@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import type { Product } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 
@@ -15,13 +16,20 @@ function ImagePlaceholder({ name }: { name: string }) {
 
 export default function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
+  const router = useRouter();
   const isSingleSize = product.sizes.length === 1;
+  const hasLongLabels = product.sizes.some(s => s.label.length > 4);
   const [added, setAdded] = useState<string | null>(null);
 
   function quickAdd(e: React.MouseEvent) {
     e.preventDefault();
     const size = product.sizes[0];
     addItem({ priceId: size.priceId, name: product.name, variant: size.label, price: product.price, img: product.image });
+  }
+
+  function goToProduct(e: React.MouseEvent) {
+    e.preventDefault();
+    router.push(`/${product.id}`);
   }
 
   function addSize(e: React.MouseEvent, size: { label: string; priceId: string }) {
@@ -50,8 +58,18 @@ export default function ProductCard({ product }: { product: Product }) {
           </button>
         )}
 
-        {/* Multi size — Choose Your Size */}
-        {!isSingleSize && (
+        {/* Multi size, long labels — Choose Your Size */}
+        {!isSingleSize && hasLongLabels && (
+          <button
+            onClick={goToProduct}
+            className="absolute bottom-0 left-0 right-0 translate-y-full bg-black py-[14px] font-sans text-[10px] font-bold uppercase tracking-[0.25em] text-white transition-transform duration-[250ms] group-hover:translate-y-0"
+          >
+            Choose Your Size
+          </button>
+        )}
+
+        {/* Multi size, short labels — size grid */}
+        {!isSingleSize && !hasLongLabels && (
           <div className="absolute bottom-0 left-0 right-0 translate-y-full bg-black px-3 py-3 transition-transform duration-[250ms] group-hover:translate-y-0">
             <p className="font-sans text-[9px] font-bold uppercase tracking-[0.25em] text-white/50 mb-2">Choose Your Size</p>
             <div className="flex flex-wrap gap-1">
