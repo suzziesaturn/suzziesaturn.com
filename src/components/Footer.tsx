@@ -8,12 +8,12 @@ export default function Footer() {
       style={{ padding: "clamp(64px,8vw,100px) clamp(24px,5vw,72px) 0" }}
     >
       <div
-        className="grid grid-cols-1 sm:grid-cols-[2fr_1fr_1fr_1fr] sm:gap-8"
+        className="grid grid-cols-1 sm:grid-cols-[2fr_1fr_1fr_1fr] gap-12 sm:gap-8"
         style={{ marginBottom: "clamp(64px,8vw,100px)" }}
       >
         {/* Stay Connected */}
         <div>
-          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-3">Stay Connected</p>
+          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Stay Connected</p>
           <p className="font-display italic font-normal leading-[1.4] mb-7 opacity-85" style={{ fontSize: "clamp(16px,2vw,20px)" }}>Stay off the radar.</p>
           <div className="flex border border-[#444] max-w-[340px]">
             <input type="email" placeholder="Your email" className="flex-1 bg-transparent text-white font-sans text-[11px] font-medium tracking-[0.08em] px-4 py-3 outline-none placeholder:opacity-35 placeholder:uppercase placeholder:tracking-[0.12em]" />
@@ -28,7 +28,7 @@ export default function Footer() {
 
         {/* Shop */}
         <div>
-          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-3">Shop</p>
+          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Shop</p>
           <ul className="flex flex-col gap-3">
             {["Slides","Tees","Hoodies","Bandanas","All Products"].map(item => (
               <li key={item}><Link href="#" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline">{item}</Link></li>
@@ -38,7 +38,7 @@ export default function Footer() {
 
         {/* Info */}
         <div>
-          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-3">Info</p>
+          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Info</p>
           <ul className="flex flex-col gap-3">
             {["About","Sizing","Shipping","Returns","Contact"].map(item => (
               <li key={item}><Link href="#" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline">{item}</Link></li>
@@ -48,7 +48,7 @@ export default function Footer() {
 
         {/* Follow */}
         <div>
-          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-3">Follow</p>
+          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Follow</p>
           <ul className="flex flex-col gap-3">
             {[
               ["@suzziesaturn", "https://www.instagram.com/suzziesaturn/"],
