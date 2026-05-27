@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="flex flex-col bg-black text-white" style={{ padding: "clamp(48px,8vw,96px) clamp(24px,5vw,72px)" }}>
+    <section className="flex min-h-[calc(100svh-96px)] sm:min-h-[calc(100svh-96px)] flex-col bg-black text-white" style={{ padding: "clamp(48px,8vw,96px) clamp(24px,5vw,72px)" }}>
       <p className="font-sans font-semibold uppercase tracking-[0.3em] text-white/50" style={{ fontSize: "clamp(10px,1.2vw,12px)", marginBottom: "clamp(20px,3vw,32px)" }}>
         SS26 Collection
       </p>
