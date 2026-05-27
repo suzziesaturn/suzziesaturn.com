@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import type { Product } from "@/lib/products";
 
@@ -11,6 +12,18 @@ function ImagePlaceholder({ name }: { name: string }) {
 }
 
 export default function ProductCard({ product }: { product: Product }) {
+  const isSingleSize = product.sizes.length === 1;
+
+  function quickAdd(e: React.MouseEvent) {
+    e.preventDefault();
+    const size = product.sizes[0];
+    const cart = JSON.parse(localStorage.getItem("sz_cart") || "[]");
+    const existing = cart.find((i: any) => i.priceId === size.priceId);
+    if (existing) existing.qty++;
+    else cart.push({ priceId: size.priceId, name: product.name, variant: size.label, price: product.price, img: product.image, qty: 1 });
+    localStorage.setItem("sz_cart", JSON.stringify(cart));
+  }
+
   return (
     <Link href={`/${product.id}`} className="group block">
       <div className="relative aspect-[3/4] overflow-hidden bg-[#e8e8e8] mb-[14px]">
@@ -18,6 +31,14 @@ export default function ProductCard({ product }: { product: Product }) {
           <img src={product.image} alt={product.name} className="h-full w-full object-cover transition-transform duration-[350ms] ease-out group-hover:scale-[1.04]" />
         ) : (
           <ImagePlaceholder name={product.name} />
+        )}
+        {isSingleSize && (
+          <button
+            onClick={quickAdd}
+            className="absolute bottom-0 left-0 right-0 translate-y-full bg-black py-[14px] font-sans text-[10px] font-bold uppercase tracking-[0.25em] text-white transition-transform duration-[250ms] group-hover:translate-y-0"
+          >
+            Quick Add
+          </button>
         )}
       </div>
       <h3 className="font-sans text-[11px] font-bold uppercase tracking-[0.12em] mb-[5px]">{product.name}</h3>
