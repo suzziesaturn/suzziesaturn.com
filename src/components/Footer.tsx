@@ -29,7 +29,7 @@ export default function Footer() {
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Shop</p>
           <ul className="flex flex-col gap-3">
             {["Slides","Tees","Hoodies","Bandanas","All Products"].map(item => (
-              <li key={item}><Link href="#" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline">{item}</Link></li>
+              <li key={item}><Link href="#" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline font-bold">{item}</Link></li>
             ))}
           </ul>
         </div>
@@ -38,7 +38,7 @@ export default function Footer() {
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Info</p>
           <ul className="flex flex-col gap-3">
             {["About","Sizing","Shipping","Returns","Contact"].map(item => (
-              <li key={item}><Link href="#" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline">{item}</Link></li>
+              <li key={item}><Link href="#" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline font-bold">{item}</Link></li>
             ))}
           </ul>
         </div>
