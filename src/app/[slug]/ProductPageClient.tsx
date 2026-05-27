@@ -26,7 +26,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex h-[60px] items-center justify-between border-b border-black bg-white px-6">
+      <header className="sticky top-0 z-50 flex h-[60px] items-center justify-between bg-white px-6">
         <Link href="/" className="font-display text-[clamp(13px,2vw,17px)] font-bold uppercase tracking-[0.12em]">Suzziesaturn</Link>
         <div className="flex items-center gap-5">
           <Link href="/" className="font-sans text-[11px] font-bold uppercase tracking-[0.15em] opacity-60 hover:opacity-100 transition-opacity">← Shop</Link>
