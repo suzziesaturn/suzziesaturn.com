@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import type { Product } from "@/lib/products";
+import { useCart } from "@/lib/cart";
 
 function ImagePlaceholder({ name }: { name: string }) {
   return (
@@ -12,16 +13,13 @@ function ImagePlaceholder({ name }: { name: string }) {
 }
 
 export default function ProductCard({ product }: { product: Product }) {
+  const { addItem } = useCart();
   const isSingleSize = product.sizes.length === 1;
 
   function quickAdd(e: React.MouseEvent) {
     e.preventDefault();
     const size = product.sizes[0];
-    const cart = JSON.parse(localStorage.getItem("sz_cart") || "[]");
-    const existing = cart.find((i: any) => i.priceId === size.priceId);
-    if (existing) existing.qty++;
-    else cart.push({ priceId: size.priceId, name: product.name, variant: size.label, price: product.price, img: product.image, qty: 1 });
-    localStorage.setItem("sz_cart", JSON.stringify(cart));
+    addItem({ priceId: size.priceId, name: product.name, variant: size.label, price: product.price, img: product.image });
   }
 
   return (
