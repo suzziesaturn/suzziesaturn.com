@@ -114,7 +114,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
             {error && <p className="w-full mt-1 font-sans text-[11px] font-semibold uppercase tracking-[0.1em] text-red-600">Please select a size.</p>}
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col">
             <button onClick={handleBuyNow} disabled={loading}
               className="w-full bg-black text-white font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-opacity hover:opacity-80 disabled:opacity-40">
               {loading ? "Loading..." : `Buy Now — $${product.price}`}
@@ -125,7 +125,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
             </button>
           </div>
 
-          <div className="border-t border-[#eee] pt-6 flex flex-col gap-3">
+          <div className="border-t border-[#eee] pt-6 flex flex-col">
             {product.details.map(({ label, value }) => (
               <div key={label} className="flex justify-between font-sans text-[11px] font-semibold uppercase tracking-[0.1em]">
                 <span className="opacity-40">{label}</span><span>{value}</span>
