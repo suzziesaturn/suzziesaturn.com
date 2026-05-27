@@ -26,7 +26,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex h-[60px] items-center justify-between bg-white px-6">
+      <header className="sticky top-0 z-50 flex h-[60px] items-center justify-between border-b border-black bg-white px-6">
         <Link href="/" className="font-display text-[clamp(13px,2vw,17px)] font-bold uppercase tracking-[0.12em]">Suzziesaturn</Link>
         <div className="flex items-center gap-5">
           <Link href="/" className="font-sans text-[11px] font-bold uppercase tracking-[0.15em] opacity-60 hover:opacity-100 transition-opacity">← Shop</Link>
@@ -60,7 +60,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.25em] opacity-40">
             <Link href="/" className="text-black no-underline">Shop</Link> / {product.name}
           </p>
-          <h1 className="font-display font-black uppercase leading-none tracking-[-0.02em]" style={{ fontSize: "clamp(36px,5vw,64px)" }}>
+          <h1 className="font-display font-black uppercase leading-[1] tracking-[-0.02em]" style={{ fontSize: "clamp(32px,4vw,56px)" }}>
             {product.name}
           </h1>
           <p className="font-sans font-semibold tracking-[0.05em]" style={{ fontSize: "clamp(18px,2vw,22px)" }}>
