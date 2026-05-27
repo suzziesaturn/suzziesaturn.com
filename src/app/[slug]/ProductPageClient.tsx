@@ -76,7 +76,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
                 <button key={s.label}
                   onClick={() => { setSelectedSize(s.label); setError(false); }}
                   className={`border font-sans text-[10px] font-bold uppercase tracking-[0.1em] px-[14px] py-[10px] cursor-pointer transition-all whitespace-nowrap
-                    ${isSingleSize ? "bg-black text-white border-black cursor-default pointer-events-none" : selectedSize === s.label ? "bg-black text-white border-black" : "bg-transparent text-black border-[#ccc] hover:border-black"}`}>
+                    ${isSingleSize ? "bg-black text-white border-black cursor-default select-text" : selectedSize === s.label ? "bg-black text-white border-black" : "bg-transparent text-black border-[#ccc] hover:border-black"}`}>
                   {s.label}
                 </button>
               ))}
