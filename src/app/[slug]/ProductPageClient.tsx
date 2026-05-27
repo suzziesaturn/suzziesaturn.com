@@ -120,7 +120,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
               {loading ? "Loading..." : `Buy Now — $${product.price}`}
             </button>
             <button onClick={handleAddToCart}
-              className="w-full bg-white text-black font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-all duration-200 hover:bg-black hover:text-white">
+              className="w-full bg-white text-black font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-all duration-200 hover:bg-black hover:text-white ring-1 ring-inset ring-black">
               {cartMsg || "Add to Cart"}
             </button>
           </div>
