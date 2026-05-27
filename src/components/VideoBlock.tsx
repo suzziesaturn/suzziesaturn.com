@@ -2,7 +2,7 @@ export default function VideoBlock() {
   return (
     <div
       className="group relative flex cursor-pointer flex-col items-center justify-center overflow-hidden bg-[#0a0a0a]"
-      style={{ aspectRatio: "9/16", gap: "20px" }}
+      style={{ aspectRatio: "16/9", gap: "20px" }}
     >
       <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 transition-all duration-200 group-hover:border-white group-hover:scale-105">
         <svg viewBox="0 0 24 24" fill="white" width="20" height="20" style={{ marginLeft: "3px" }}>
