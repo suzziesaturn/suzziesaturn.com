@@ -7,21 +7,30 @@ export default function ProductPageClient({ product }: { product: Product }) {
   const [activeImg, setActiveImg] = useState(0);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const images = product.images?.length ? product.images : [product.image];
   const sizes = product.sizes;
   const isSingleSize = sizes.length === 1;
 
-  function handleAddToCart() {
+  async function handleBuyNow() {
     if (!isSingleSize && !selectedSize) { setError(true); return; }
     const size = selectedSize || sizes[0]?.label;
     const priceId = sizes.find((s) => s.label === size)?.priceId || sizes[0]?.priceId;
-    const cart = JSON.parse(localStorage.getItem("sz_cart") || "[]");
-    const existing = cart.find((i: any) => i.priceId === priceId);
-    if (existing) existing.qty++;
-    else cart.push({ priceId, name: product.name, variant: size, price: product.price, img: images[0], qty: 1 });
-    localStorage.setItem("sz_cart", JSON.stringify(cart));
-    window.location.href = "/";
+    setLoading(true);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ priceId }),
+      });
+      const data = await res.json();
+      if (data.url) window.location.href = data.url;
+      else throw new Error(data.error);
+    } catch (err) {
+      console.error(err);
+      setLoading(false);
+    }
   }
 
   return (
@@ -88,8 +97,9 @@ export default function ProductPageClient({ product }: { product: Product }) {
             {error && <p className="w-full mt-1 font-sans text-[11px] font-semibold uppercase tracking-[0.1em] text-red-600">Please select a size.</p>}
           </div>
 
-          <button onClick={handleAddToCart} className="w-full bg-black text-white font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-opacity hover:opacity-80 select-text">
-            Buy Now — ${product.price}
+          <button onClick={handleBuyNow} disabled={loading}
+            className="w-full bg-black text-white font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-opacity hover:opacity-80 disabled:opacity-40 select-text">
+            {loading ? "Loading..." : `Buy Now — $${product.price}`}
           </button>
 
           <div className="border-t border-[#eee] pt-6 flex flex-col gap-3">
