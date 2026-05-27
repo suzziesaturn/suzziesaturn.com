@@ -67,21 +67,25 @@ export default function ProductPageClient({ product }: { product: Product }) {
             ${product.price}.00
           </p>
 
-          <div>
-            {!isSingleSize && (
-              <p className="font-sans text-[10px] font-bold uppercase tracking-[0.25em] opacity-50 mb-3">Select Size</p>
+          <div className="flex flex-wrap gap-2">
+            {isSingleSize ? (
+              <span className="inline-block border border-black bg-black px-[14px] py-[10px] font-sans text-[10px] font-bold uppercase tracking-[0.1em] text-white">
+                {sizes[0].label}
+              </span>
+            ) : (
+              <>
+                <p className="w-full font-sans text-[10px] font-bold uppercase tracking-[0.25em] opacity-50 mb-1">Select Size</p>
+                {sizes.map((s) => (
+                  <button key={s.label}
+                    onClick={() => { setSelectedSize(s.label); setError(false); }}
+                    className={`border font-sans text-[10px] font-bold uppercase tracking-[0.1em] px-[14px] py-[10px] cursor-pointer transition-all whitespace-nowrap
+                      ${selectedSize === s.label ? "bg-black text-white border-black" : "bg-transparent text-black border-[#ccc] hover:border-black"}`}>
+                    {s.label}
+                  </button>
+                ))}
+              </>
             )}
-            <div className="flex flex-wrap gap-2">
-              {sizes.map((s) => (
-                <button key={s.label}
-                  onClick={() => { setSelectedSize(s.label); setError(false); }}
-                  className={`border font-sans text-[10px] font-bold uppercase tracking-[0.1em] px-[14px] py-[10px] cursor-pointer transition-all whitespace-nowrap
-                    ${isSingleSize ? "bg-black text-white border-black cursor-default select-text" : selectedSize === s.label ? "bg-black text-white border-black" : "bg-transparent text-black border-[#ccc] hover:border-black"}`}>
-                  {s.label}
-                </button>
-              ))}
-            </div>
-            {error && <p className="mt-2 font-sans text-[11px] font-semibold uppercase tracking-[0.1em] text-red-600">Please select a size.</p>}
+            {error && <p className="w-full mt-1 font-sans text-[11px] font-semibold uppercase tracking-[0.1em] text-red-600">Please select a size.</p>}
           </div>
 
           <button onClick={handleAddToCart} className="w-full bg-black text-white font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-opacity hover:opacity-80">
