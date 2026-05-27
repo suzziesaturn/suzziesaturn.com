@@ -8,7 +8,7 @@ export default function Footer() {
       style={{ padding: "clamp(64px,8vw,100px) clamp(24px,5vw,72px) 0" }}
     >
       <div
-        className="grid grid-cols-1 sm:grid-cols-[2fr_1fr_1fr_1fr] gap-8 sm:gap-8"
+        className="grid grid-cols-1 sm:grid-cols-[2fr_1fr_1fr_1fr] sm:gap-8"
         style={{ marginBottom: "clamp(64px,8vw,100px)" }}
       >
         {/* Stay Connected */}
