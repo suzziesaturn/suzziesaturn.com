@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 import type { Product } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 
@@ -15,11 +16,19 @@ function ImagePlaceholder({ name }: { name: string }) {
 export default function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
   const isSingleSize = product.sizes.length === 1;
+  const [added, setAdded] = useState<string | null>(null);
 
   function quickAdd(e: React.MouseEvent) {
     e.preventDefault();
     const size = product.sizes[0];
     addItem({ priceId: size.priceId, name: product.name, variant: size.label, price: product.price, img: product.image });
+  }
+
+  function addSize(e: React.MouseEvent, size: { label: string; priceId: string }) {
+    e.preventDefault();
+    addItem({ priceId: size.priceId, name: product.name, variant: size.label, price: product.price, img: product.image });
+    setAdded(size.priceId);
+    setTimeout(() => setAdded(null), 1500);
   }
 
   return (
@@ -30,6 +39,8 @@ export default function ProductCard({ product }: { product: Product }) {
         ) : (
           <ImagePlaceholder name={product.name} />
         )}
+
+        {/* Single size — Quick Add */}
         {isSingleSize && (
           <button
             onClick={quickAdd}
@@ -37,6 +48,25 @@ export default function ProductCard({ product }: { product: Product }) {
           >
             Quick Add
           </button>
+        )}
+
+        {/* Multi size — Choose Your Size */}
+        {!isSingleSize && (
+          <div className="absolute bottom-0 left-0 right-0 translate-y-full bg-black px-3 py-3 transition-transform duration-[250ms] group-hover:translate-y-0">
+            <p className="font-sans text-[9px] font-bold uppercase tracking-[0.25em] text-white/50 mb-2">Choose Your Size</p>
+            <div className="flex flex-wrap gap-1">
+              {product.sizes.map((s) => (
+                <button
+                  key={s.priceId}
+                  onClick={(e) => addSize(e, s)}
+                  className={`border font-sans text-[9px] font-bold uppercase tracking-[0.08em] px-2 py-1 transition-all whitespace-nowrap
+                    ${added === s.priceId ? "bg-white text-black border-white" : "bg-transparent text-white border-white/40 hover:border-white"}`}
+                >
+                  {added === s.priceId ? "✓" : s.label}
+                </button>
+              ))}
+            </div>
+          </div>
         )}
       </div>
       <h3 className="font-sans text-[11px] font-bold uppercase tracking-[0.12em] mb-[5px]">{product.name}</h3>
