@@ -31,8 +31,9 @@
     "category": "Accessories",
     "image": "/images/products/bandana-1.png",
     "images": ["/images/products/bandana-1.png"],
-    "description": "100% cotton bandana with the Saturn motif. One size, infinite ways to wear it.",
+    "description": "100% silk bandana with the Saturn motif. One size, infinite ways to wear it.",
     "details": [
+      { "label": "Material", "value": "Silk" },
       { "label": "Size", "value": "One Size Fits Most" },
       { "label": "Ships", "value": "3–5 Business Days" },
       { "label": "Returns", "value": "30 Days" }
