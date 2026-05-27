@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Product } from "@/lib/products";
 
 function ImagePlaceholder({ name }: { name: string }) {
@@ -11,7 +12,7 @@ function ImagePlaceholder({ name }: { name: string }) {
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <article className="group block cursor-pointer">
+    <Link href={`/${product.id}`} className="group block">
       <div className="relative aspect-[3/4] overflow-hidden bg-[#e8e8e8] mb-[14px]">
         {product.hasImage ? (
           <img src={product.image} alt={product.name} className="h-full w-full object-cover transition-transform duration-[350ms] ease-out group-hover:scale-[1.04]" />
@@ -21,6 +22,6 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
       <h3 className="font-sans text-[11px] font-bold uppercase tracking-[0.12em] mb-[5px]">{product.name}</h3>
       <p className="font-sans text-xs font-medium text-[#555]">${product.price}</p>
-    </article>
+    </Link>
   );
 }
