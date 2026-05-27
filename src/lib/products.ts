@@ -7,14 +7,10 @@ export interface Product {
   name: string;
   price: number;
   category: string;
-  /** Public path to the product image, e.g. /images/products/slides-1.jpg */
   image: string;
+  images: string[];
   description: string;
-  sizes: string[];
-  /**
-   * Resolved at module load: true if a real file exists under public/.
-   * Cards show the editorial placeholder when this is false (e.g. before real photos are added).
-   */
+  sizes: { label: string; priceId: string }[];
   hasImage: boolean;
 }
 

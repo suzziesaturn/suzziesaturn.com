@@ -8,7 +8,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [error, setError] = useState(false);
 
-  const images = product.hasImage ? [product.image] : [];
+  const images = product.hasImage ? product.images.filter(img => fs.existsSync(img)) : [];
 
   function handleAddToCart() {
     if ((product.sizes as any[]).length > 1 && !selectedSize) {
