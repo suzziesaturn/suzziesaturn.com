@@ -8,10 +8,9 @@ export default function Footer() {
       style={{ padding: "clamp(64px,8vw,100px) clamp(24px,5vw,72px) 0" }}
     >
       <div
-        className="grid grid-cols-1 sm:grid-cols-[2fr_1fr_1fr_1fr] gap-12 sm:gap-8"
+        className="grid grid-cols-1 sm:grid-cols-[2fr_1fr_1fr_1fr] sm:gap-8"
         style={{ marginBottom: "clamp(64px,8vw,100px)" }}
       >
-        {/* Stay Connected */}
         <div>
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Stay Connected</p>
           <p className="font-display italic font-normal leading-[1.4] mb-7 opacity-85" style={{ fontSize: "clamp(16px,2vw,20px)" }}>Stay off the radar.</p>
@@ -26,8 +25,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Shop */}
-        <div>
+        <div className="pt-12 sm:pt-0">
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Shop</p>
           <ul className="flex flex-col gap-3">
             {["Slides","Tees","Hoodies","Bandanas","All Products"].map(item => (
@@ -36,8 +34,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Info */}
-        <div>
+        <div className="pt-12 sm:pt-0">
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Info</p>
           <ul className="flex flex-col gap-3">
             {["About","Sizing","Shipping","Returns","Contact"].map(item => (
@@ -46,8 +43,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Follow */}
-        <div>
+        <div className="pt-12 sm:pt-0">
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Follow</p>
           <ul className="flex flex-col gap-3">
             {[
@@ -69,7 +65,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Wordmark */}
       <div
         className="font-display font-black uppercase leading-none w-full text-center border-t border-[#222] overflow-hidden whitespace-nowrap tracking-[-0.02em]"
         style={{ fontSize: "clamp(40px,10vw,130px)", padding: "clamp(24px,4vw,40px) 0" }}
@@ -77,7 +72,6 @@ export default function Footer() {
         Suzziesaturn
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-[#222] py-5 flex items-center justify-between gap-4 flex-wrap">
         <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] opacity-35">&copy; {year} Suzziesaturn LLC</span>
         <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] opacity-35">Black-Owned &middot; Est. 2017</span>
