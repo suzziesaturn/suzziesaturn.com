@@ -43,7 +43,7 @@ export default function Footer() {
         <div>
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Follow</p>
           <ul className="flex flex-col gap-3">
-            {[["@suzziesaturn","#"],["Instagram","#"],["TikTok","#"],["X / Twitter","#"]].map(([label,href]) => (
+            {[["@suzziesaturn","https://www.instagram.com/suzziesaturn/"],["Instagram","https://www.instagram.com/suzziesaturn/"],["TikTok","https://www.tiktok.com/@suzziesaturn"],["X / Twitter","https://x.com/suzziesaturn"]].map(([label,href]) => (
               <li key={label}><Link href={href} className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline">{label}</Link></li>
             ))}
           </ul>
