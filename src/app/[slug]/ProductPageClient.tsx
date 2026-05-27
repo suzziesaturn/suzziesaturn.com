@@ -69,7 +69,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
 
           <div className="flex flex-wrap gap-2">
             {isSingleSize ? (
-              <div className="inline-block border border-black bg-black px-[14px] py-[10px]"><span className="font-sans text-[10px] font-bold uppercase tracking-[0.1em] text-white select-text">
+              <span className="inline-block border border-black bg-black px-[14px] py-[10px] font-sans text-[10px] font-bold uppercase tracking-[0.1em] text-white select-all">
                 {sizes[0].label}
               </span>
             ) : (
@@ -88,7 +88,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
             {error && <p className="w-full mt-1 font-sans text-[11px] font-semibold uppercase tracking-[0.1em] text-red-600">Please select a size.</p>}
           </div>
 
-          <button onClick={handleAddToCart} className="w-full bg-black text-white font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-opacity hover:opacity-80 select-text">
+          <button onClick={handleAddToCart} className="w-full bg-black text-white font-sans text-xs font-bold uppercase tracking-[0.25em] py-5 transition-opacity hover:opacity-80 select-all">
             Buy Now — ${product.price}
           </button>
 
