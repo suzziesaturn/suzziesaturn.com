@@ -27,7 +27,7 @@ export default function Footer() {
 
         <div className="pt-12 sm:pt-0">
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Shop</p>
-          <ul className="flex flex-col gap-[7px]">
+          <ul className="flex flex-col gap-[5px]">
             {["Slides","Tees","Hoodies","Bandanas","All Products"].map(item => (
               <li key={item}><Link href="#" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline font-bold">{item}</Link></li>
             ))}
@@ -36,7 +36,7 @@ export default function Footer() {
 
         <div className="pt-12 sm:pt-0">
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Info</p>
-          <ul className="flex flex-col gap-[7px]">
+          <ul className="flex flex-col gap-[5px]">
             {["About","Sizing","Shipping","Returns","Contact"].map(item => (
               <li key={item}><Link href="#" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline font-bold">{item}</Link></li>
             ))}
@@ -45,7 +45,7 @@ export default function Footer() {
 
         <div className="pt-12 sm:pt-0">
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Follow</p>
-          <ul className="flex flex-col gap-[7px]">
+          <ul className="flex flex-col gap-[5px]">
             {[
               ["@suzziesaturn", "https://www.instagram.com/suzziesaturn/"],
               ["Instagram", "https://www.instagram.com/suzziesaturn/"],
