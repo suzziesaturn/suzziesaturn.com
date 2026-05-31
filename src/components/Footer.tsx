@@ -3,78 +3,62 @@ import Link from "next/link";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer
-      className="bg-black text-white border-t border-[#222] overflow-hidden"
-      style={{ padding: "clamp(64px,8vw,100px) clamp(24px,5vw,72px) 0" }}
-    >
-      <div
-        className="grid grid-cols-1 sm:grid-cols-[2fr_1fr_1fr_1fr] sm:gap-8"
-        style={{ marginBottom: "clamp(64px,8vw,100px)" }}
-      >
-        <div>
-          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Stay Connected</p>
-          <p className="font-display italic font-normal leading-[1.4] mb-7 opacity-85" style={{ fontSize: "clamp(16px,2vw,20px)" }}>Stay off the radar.</p>
-          <div className="flex border border-[#444] max-w-[340px]">
-            <input type="email" placeholder="Your email" className="flex-1 bg-transparent text-white font-sans text-[11px] font-medium tracking-[0.08em] px-4 py-3 outline-none placeholder:opacity-35 placeholder:uppercase placeholder:tracking-[0.12em]" />
-            <button type="button" className="bg-white text-black font-sans text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-3 cursor-pointer transition-opacity hover:opacity-80">Join</button>
+    <footer className="overflow-hidden bg-black text-white">
+      <div className="px-5 pb-10 pt-16 sm:px-8 sm:pt-24 sm:pb-14">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-[2fr_1fr_1fr_1fr]">
+          <div className="max-w-sm">
+            <p className="mb-5 font-sans text-[0.65rem] font-bold uppercase tracking-[0.3em] text-white">Stay Connected</p>
+            <p className="mb-7 font-display text-xl italic text-white/85">Stay off the radar.</p>
+            <div className="flex w-full border border-white/25">
+              <input type="email" placeholder="Your email" className="min-w-0 flex-1 bg-transparent px-4 py-3 font-sans text-[11px] font-medium tracking-wide text-white placeholder:uppercase placeholder:tracking-widest placeholder:text-white/35 outline-none" />
+              <button type="button" className="shrink-0 bg-white px-4 py-3 font-sans text-[10px] font-bold uppercase tracking-widest text-black transition-opacity hover:opacity-80">Join</button>
+            </div>
+            <div className="mt-6 flex flex-col gap-2">
+              <span className="font-sans text-[10px] font-medium uppercase tracking-wide text-white/30">Free shipping on orders over $75</span>
+              <span className="font-sans text-[10px] font-medium uppercase tracking-wide text-white/30">Free returns within 30 days</span>
+              <span className="font-sans text-[10px] font-medium uppercase tracking-wide text-white/30">Ships within 3–5 business days</span>
+            </div>
           </div>
-          <div className="mt-8 flex flex-col gap-2">
-            <span className="font-sans text-[10px] font-medium tracking-[0.08em] opacity-30">Free shipping on orders over $75</span>
-            <span className="font-sans text-[10px] font-medium tracking-[0.08em] opacity-30">Free returns within 30 days</span>
-            <span className="font-sans text-[10px] font-medium tracking-[0.08em] opacity-30">Ships within 3–5 business days</span>
+
+          <div>
+            <p className="mb-5 font-sans text-[0.65rem] font-bold uppercase tracking-[0.3em] text-white">Shop</p>
+            <ul className="flex flex-col gap-3">
+              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Slides</Link></li>
+              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Tees</Link></li>
+              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Hoodies</Link></li>
+              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Bandanas</Link></li>
+              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">All Products</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="mb-5 font-sans text-[0.65rem] font-bold uppercase tracking-[0.3em] text-white">Info</p>
+            <ul className="flex flex-col gap-3">
+              <li><Link href="/about" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">About</Link></li>
+              <li><Link href="/sizing" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Sizing</Link></li>
+              <li><Link href="/shipping" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Shipping</Link></li>
+              <li><Link href="/returns" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Returns</Link></li>
+              <li><Link href="/contact" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Contact</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="mb-5 font-sans text-[0.65rem] font-bold uppercase tracking-[0.3em] text-white">Follow</p>
+            <ul className="flex flex-col gap-3">
+              <li><Link href="https://instagram.com/suzziesaturn" target="_blank" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">@suzziesaturn</Link></li>
+              <li><Link href="https://instagram.com/suzziesaturn" target="_blank" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Instagram</Link></li>
+              <li><Link href="https://tiktok.com/@suzziesaturn" target="_blank" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">TikTok</Link></li>
+              <li><Link href="https://x.com/suzziesaturn" target="_blank" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">X / Twitter</Link></li>
+            </ul>
           </div>
         </div>
 
-        <div className="pt-12 sm:pt-0">
-          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Shop</p>
-          <ul className="flex flex-col gap-[5px]">
-            {["Slides","Tees","Hoodies","Bandanas","All Products"].map(item => (
-              <li key={item}><Link href="#" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline font-bold">{item}</Link></li>
-            ))}
-          </ul>
+        <h2 className="mt-16 font-display text-[clamp(2.75rem,15vw,13rem)] uppercase leading-[0.8] tracking-[-0.03em]">Suzziesaturn</h2>
+
+        <div className="mt-8 flex flex-col gap-2 border-t border-white/15 pt-6 sm:flex-row sm:justify-between">
+          <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50">&copy; {year} Suzziesaturn LLC</span>
+          <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50">Black-owned &middot; Est. 2017</span>
         </div>
-
-        <div className="pt-12 sm:pt-0">
-          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Info</p>
-          <ul className="flex flex-col gap-[5px]">
-            {["About","Sizing","Shipping","Returns","Contact"].map(item => (
-              <li key={item}><Link href="#" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline font-bold">{item}</Link></li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="pt-12 sm:pt-0">
-          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-5">Follow</p>
-          <ul className="flex flex-col gap-[5px]">
-            {[
-              ["@suzziesaturn", "https://www.instagram.com/suzziesaturn/"],
-              ["Instagram", "https://www.instagram.com/suzziesaturn/"],
-              ["TikTok", "https://www.tiktok.com/@suzziesaturn"],
-              ["X / Twitter", "https://x.com/suzziesaturn"],
-              ["YouTube", "https://www.youtube.com/@suzziesaturn"],
-              ["Tumblr", "https://suzziesaturn.tumblr.com/"],
-              ["Pinterest", "https://www.pinterest.com/suzziesaturn/"],
-            ].map(([label, href]) => (
-              <li key={label}>
-                <Link href={href} target="_blank" rel="noopener noreferrer" className="font-sans text-xs font-medium tracking-[0.06em] text-white opacity-60 hover:opacity-100 transition-opacity no-underline">
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div
-        className="font-display font-black uppercase leading-none w-full text-center border-t border-[#222] overflow-hidden whitespace-nowrap tracking-[-0.02em]"
-        style={{ fontSize: "clamp(40px,10vw,130px)", padding: "clamp(24px,4vw,40px) 0" }}
-      >
-        Suzziesaturn
-      </div>
-
-      <div className="border-t border-[#222] py-5 flex items-center justify-between gap-4 flex-wrap">
-        <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] opacity-35">&copy; {year} Suzziesaturn LLC</span>
-        <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] opacity-35">Black-Owned &middot; Est. 2017</span>
       </div>
     </footer>
   );
