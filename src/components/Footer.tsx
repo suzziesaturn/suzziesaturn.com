@@ -23,10 +23,10 @@ export default function Footer() {
           <div>
             <p className="mb-5 font-sans text-[0.65rem] font-bold uppercase tracking-[0.3em] text-white">Shop</p>
             <ul className="flex flex-col gap-3">
-              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Slides</Link></li>
+              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Footwear</Link></li>
               <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Tees</Link></li>
               <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Hoodies</Link></li>
-              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Bandanas</Link></li>
+              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Accessories</Link></li>
               <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">All Products</Link></li>
             </ul>
           </div>
