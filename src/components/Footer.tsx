@@ -23,11 +23,11 @@ export default function Footer() {
           <div>
             <p className="mb-5 font-sans text-[0.65rem] font-bold uppercase tracking-[0.3em] text-white">Shop</p>
             <ul className="flex flex-col gap-3">
-              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Footwear</Link></li>
-              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Tees</Link></li>
-              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Hoodies</Link></li>
-              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Accessories</Link></li>
               <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">All Products</Link></li>
+              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Accessories</Link></li>
+              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Footwear</Link></li>
+              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Hoodies</Link></li>
+              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Tees</Link></li>
             </ul>
           </div>
 
@@ -49,6 +49,9 @@ export default function Footer() {
               <li><Link href="https://instagram.com/suzziesaturn" target="_blank" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Instagram</Link></li>
               <li><Link href="https://tiktok.com/@suzziesaturn" target="_blank" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">TikTok</Link></li>
               <li><Link href="https://x.com/suzziesaturn" target="_blank" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">X / Twitter</Link></li>
+              <li><Link href="https://youtube.com/@suzziesaturn" target="_blank" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">YouTube</Link></li>
+              <li><Link href="https://pinterest.com/suzziesaturn" target="_blank" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Pinterest</Link></li>
+              <li><Link href="https://suzziesaturn.tumblr.com" target="_blank" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Tumblr</Link></li>
             </ul>
           </div>
         </div>
