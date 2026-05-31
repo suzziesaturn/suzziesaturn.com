@@ -8,7 +8,7 @@ export default function ContactPage() {
       <main className="min-h-screen px-5 py-16 sm:px-8 sm:py-24 max-w-3xl mx-auto">
         <p className="mb-4 text-[0.65rem] font-bold uppercase tracking-[0.3em] text-black/40">Get In Touch</p>
         <h1 className="font-display text-5xl uppercase leading-none tracking-tight mb-4">Contact</h1>
-        <p className="mb-12 font-sans text-sm text-black/60">Questions, feedback, or just want to talk? We'll get back to you within 1–2 business days.</p>
+        <p className="mb-12 font-sans text-sm text-black/60">Questions, feedback, or just want to talk? We&apos;ll get back to you within 1–2 business days.</p>
         <form className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <label className="font-sans text-[10px] font-bold uppercase tracking-[0.2em]">Name</label>

@@ -19,7 +19,7 @@ export default function SizingPage() {
       <main className="min-h-screen px-5 py-16 sm:px-8 sm:py-24 max-w-3xl mx-auto">
         <p className="mb-4 text-[0.65rem] font-bold uppercase tracking-[0.3em] text-black/40">Info</p>
         <h1 className="font-display text-5xl uppercase leading-none tracking-tight mb-4">Size Guide</h1>
-        <p className="mb-12 font-sans text-sm text-black/60">All slides are unisex. If you're between sizes, size up.</p>
+        <p className="mb-12 font-sans text-sm text-black/60">All slides are unisex. If you&apos;re between sizes, size up.</p>
         <div className="mb-8">
           <h2 className="mb-6 font-sans text-xs font-bold uppercase tracking-[0.2em]">Radarskin Slides</h2>
           <div className="overflow-x-auto">
