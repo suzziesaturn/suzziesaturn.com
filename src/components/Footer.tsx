@@ -24,10 +24,10 @@ export default function Footer() {
             <p className="mb-5 font-sans text-[0.65rem] font-bold uppercase tracking-[0.3em] text-white">Shop</p>
             <ul className="flex flex-col gap-3">
               <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">All Products</Link></li>
-              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Accessories</Link></li>
-              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Footwear</Link></li>
-              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Hoodies</Link></li>
-              <li><Link href="/products" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Tees</Link></li>
+              <li><Link href="/accessories" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Accessories</Link></li>
+              <li><Link href="/footwear" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Footwear</Link></li>
+              <li><Link href="/hoodies" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Hoodies</Link></li>
+              <li><Link href="/tees" className="font-sans text-xs font-medium tracking-wide text-white/60 transition-colors hover:text-white">Tees</Link></li>
             </ul>
           </div>
 
