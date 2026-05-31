@@ -37,7 +37,7 @@ export default function CartDrawer() {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-6 border-b border-[#eee]">
           <p className="font-display font-black text-xl uppercase tracking-[-0.01em]">Cart</p>
-          <button onClick={closeCart} className="font-sans text-[11px] font-bold uppercase tracking-[0.15em] opacity-40 hover:opacity-100 transition-opacity">✕</button>
+          <button onClick={closeCart} className="font-sans text-lg font-bold opacity-40 hover:opacity-100 transition-opacity p-2">✕</button>
         </div>
 
         {/* Items */}
