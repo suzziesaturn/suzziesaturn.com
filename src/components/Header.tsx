@@ -1,5 +1,12 @@
 "use client";
+import Link from "next/link";
 import { useCart } from "@/lib/cart";
+
+const NAV = [
+  { label: "Shop", href: "/products" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Header() {
   const { openCart, count } = useCart();
@@ -13,10 +20,10 @@ export default function Header() {
       </div>
       <header className="sticky top-0 z-50 border-b border-black bg-white">
         <div className="flex h-[60px] items-center justify-between px-6">
-          <a href="/" className="font-display text-[clamp(13px,2vw,17px)] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-60">Suzziesaturn</a>
+          <Link href="/" className="font-display text-[clamp(13px,2vw,17px)] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-60">Suzziesaturn</Link>
           <nav className="hidden items-center gap-8 md:flex">
-            {["Shop","About","Contact"].map((item) => (
-              <a key={item} href="#" className="font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-black opacity-55 transition-opacity hover:opacity-100">{item}</a>
+            {NAV.map(({ label, href }) => (
+              <Link key={label} href={href} className="font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-black opacity-55 transition-opacity hover:opacity-100">{label}</Link>
             ))}
           </nav>
           <div className="flex items-center gap-5">
