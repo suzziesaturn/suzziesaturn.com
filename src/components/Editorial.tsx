@@ -12,9 +12,9 @@ export default function Editorial() {
         alt="Editorial"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent" />
       <p
-        className="relative font-display italic font-normal leading-[1.3] text-white opacity-90 max-w-[480px]"
+        className="relative font-display italic font-normal leading-[1.3] text-white max-w-[480px]"
         style={{ fontSize: "clamp(18px,3vw,36px)" }}
       >
         &ldquo;Low profile. High taste.<br />Off the radar since 2017.&rdquo;
