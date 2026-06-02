@@ -1,8 +1,8 @@
 const items = [
-  { label: "Kicks", name: "Radarskin Kicks" },
-  { label: "Denim Jacket", name: "Suzzie Denim" },
-  { label: "Crossbody", name: "Crossbody Bag" },
-  { label: "Duffle", name: "Suzzie Duffle" },
+  { label: "Kicks", name: "Radarskin Kicks", img: "/images/coming-soon-kicks.jpg" },
+  { label: "Denim Jacket", name: "Suzzie Denim", img: null },
+  { label: "Crossbody", name: "Crossbody Bag", img: null },
+  { label: "Duffle", name: "Suzzie Duffle", img: null },
 ];
 
 export default function ComingSoon() {
@@ -19,8 +19,14 @@ export default function ComingSoon() {
       <div className="grid grid-cols-2 sm:grid-cols-4" style={{ gap: "clamp(12px,2vw,24px)" }}>
         {items.map((item) => (
           <div key={item.name} className="flex flex-col gap-3">
-            <div className="flex items-center justify-center bg-[#f0f0f0] font-sans text-[10px] font-semibold uppercase tracking-[0.1em] text-[#bbb]" style={{ aspectRatio: "3/4" }}>
-              {item.label}
+            <div className="relative overflow-hidden bg-[#f0f0f0]" style={{ aspectRatio: "3/4" }}>
+              {item.img ? (
+                <img src={item.img} alt={item.name} className="h-full w-full object-cover" />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center font-sans text-[10px] font-semibold uppercase tracking-[0.1em] text-[#bbb]">
+                  {item.label}
+                </div>
+              )}
             </div>
             <p className="font-sans text-[11px] font-bold uppercase tracking-[0.12em]">{item.name}</p>
             <span className="w-fit border border-[#ccc] px-[10px] py-1 font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-[#999]">
