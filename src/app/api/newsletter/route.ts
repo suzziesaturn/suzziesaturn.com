@@ -6,6 +6,17 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: Request) {
   try {
     const { email } = await req.json();
+    const timestamp = new Date().toLocaleString("en-US", {
+      timeZone: "America/New_York",
+      dateStyle: "full",
+      timeStyle: "short",
+    });
+
+    const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || "Unknown";
+    const city = req.headers.get("x-vercel-ip-city") || "Unknown";
+    const region = req.headers.get("x-vercel-ip-country-region") || "Unknown";
+    const country = req.headers.get("x-vercel-ip-country") || "Unknown";
+
     await resend.emails.send({
       from: "SUZZIESATURN <noreply@suzziesaturn.com>",
       to: email,
@@ -19,12 +30,19 @@ export async function POST(req: Request) {
         </div>
       `,
     });
+
     await resend.emails.send({
       from: "SUZZIESATURN <noreply@suzziesaturn.com>",
       to: "coolemail@suzziesaturn.com",
       subject: `New subscriber: ${email}`,
-      html: `<p>New newsletter signup: <strong>${email}</strong></p>`,
+      html: `
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Signed up:</strong> ${timestamp} ET</p>
+        <p><strong>Location:</strong> ${city}, ${region}, ${country}</p>
+        <p><strong>IP:</strong> ${ip}</p>
+      `,
     });
+
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
     return NextResponse.json({ error: (err as Error).message }, { status: 500 });
