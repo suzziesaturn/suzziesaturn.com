@@ -1,35 +1,8 @@
-"use client";
-import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
-
-function NotifyBtn({ product }: { product: string }) {
-  const [open, setOpen] = useState(false);
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle"|"loading"|"done">("idle");
-
-  async function handleNotify() {
-    if (!email) return;
-    setStatus("loading");
-    await fetch("/api/notify", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, product }),
-    });
-    setStatus("done");
-  }
-
-  if (status === "done") return <span className="w-fit border border-[#ccc] px-[10px] py-1 font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-[#999]">You're on the list.</span>;
-  if (!open) return <button onClick={() => setOpen(true)} className="w-fit border border-[#ccc] px-[10px] py-1 font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-[#999] hover:border-black hover:text-black transition-colors">Notify Me</button>;
-  return (
-    <div className="flex border border-black">
-      <input autoFocus type="email" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)} onKeyDown={e => e.key === "Enter" && handleNotify()} className="min-w-0 flex-1 bg-transparent px-2 py-1 font-sans text-[9px] outline-none placeholder:text-black/30" />
-      <button onClick={handleNotify} disabled={status === "loading"} className="shrink-0 bg-black px-2 py-1 font-sans text-[9px] font-bold uppercase tracking-[0.15em] text-white hover:opacity-80 disabled:opacity-40">{status === "loading" ? "..." : "Go"}</button>
-    </div>
-  );
-}
+import NotifyBtn from "@/components/NotifyBtn";
 
 export default function FootwearPage() {
   const filtered = products.filter(p => p.category === "Footwear");
@@ -47,11 +20,20 @@ export default function FootwearPage() {
           <h2 className="font-display text-4xl uppercase leading-none tracking-tight mb-10">Coming Soon</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div className="flex flex-col gap-3">
-              <div className="relative overflow-hidden bg-[#f0f0f0]" style={{ aspectRatio: "3/4" }}>
-                <img src="/images/coming-soon-kicks.jpg" alt="Radarskin Kicks" className="h-full w-full object-cover" />
+              <div className="group relative overflow-hidden bg-[#f0f0f0]" style={{ aspectRatio: "3/4" }}>
+                <img src="/images/coming-soon-kicks-2.jpg" alt="Radarskin Kicks" className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0" />
+                <img src="/images/coming-soon-kicks.jpg" alt="Radarskin Kicks" className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </div>
               <p className="font-sans text-[11px] font-bold uppercase tracking-[0.12em]">Radarskin Kicks</p>
               <NotifyBtn product="Radarskin Kicks" />
+            </div>
+            <div className="flex flex-col gap-3">
+              <div className="group relative overflow-hidden bg-[#f0f0f0]" style={{ aspectRatio: "3/4" }}>
+                <img src="/images/radarskin-socks-1.jpg" alt="Radarskin Socks" className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0" />
+                <img src="/images/radarskin-socks-2.jpg" alt="Radarskin Socks" className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              </div>
+              <p className="font-sans text-[11px] font-bold uppercase tracking-[0.12em]">Radarskin Socks</p>
+              <NotifyBtn product="Radarskin Socks" />
             </div>
           </div>
         </div>
