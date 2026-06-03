@@ -11,8 +11,8 @@ export default function AboutPage() {
         <div className="flex flex-col gap-8 font-sans text-sm leading-relaxed text-black/70">
           <p className="font-display text-2xl italic leading-snug text-black">DMV roots. No ceilings.</p>
           <p>SUZZIESATURN LLC is a Black-owned streetwear brand built in the DMV, established in 2017. We make clothing for people who love style and stay out the way.</p>
-          <p>Every piece is intentional. We don&apos;t follow seasons or trends — we move on our own timeline, drop when it&apos;s right, and build for people who already know.</p>
-          <p>From slides to bandanas to whatever comes next — SUZZIESATURN is a brand built to last, made by someone from here, for everyone who gets it.</p>
+          <p>Every piece is intentional. We don't follow seasons or trends — we move on our own timeline, drop when it's right, and build for people who already know and those willing to give life their best.</p>
+          <p>From headwear to footwear to whatever bright idea comes next — SUZZIESATURN LLC is a brand built to shine, made by people that want to be heard, for everyone that listens.</p>
           <div className="pt-4 border-t border-black/10">
             <p className="font-sans text-xs text-black/40 uppercase tracking-[0.2em]">SUZZIESATURN LLC · DMV · Est. 2017 · Black-Owned</p>
           </div>
