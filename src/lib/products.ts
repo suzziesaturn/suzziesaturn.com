@@ -1,5 +1,3 @@
-import fs from "node:fs";
-import path from "node:path";
 import data from "@/data/products.json";
 
 export interface Product {
@@ -17,11 +15,9 @@ export interface Product {
 
 type RawProduct = Omit<Product, "hasImage">;
 
-const publicDir = path.join(process.cwd(), "public");
-
 export const products: Product[] = (data as RawProduct[]).map((product) => ({
   ...product,
-  hasImage: fs.existsSync(path.join(publicDir, product.image)),
+  hasImage: true,
 }));
 
 export function getProductById(id: string): Product | undefined {
