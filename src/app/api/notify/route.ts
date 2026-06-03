@@ -6,6 +6,12 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: Request) {
   try {
     const { email, product } = await req.json();
+    const timestamp = new Date().toLocaleString("en-US", {
+      timeZone: "America/New_York",
+      dateStyle: "full",
+      timeStyle: "short",
+    });
+
     await resend.emails.send({
       from: "SUZZIESATURN <noreply@suzziesaturn.com>",
       to: email,
@@ -18,12 +24,18 @@ export async function POST(req: Request) {
         </div>
       `,
     });
+
     await resend.emails.send({
       from: "SUZZIESATURN <noreply@suzziesaturn.com>",
       to: "coolemail@suzziesaturn.com",
       subject: `Notify Me: ${product} — ${email}`,
-      html: `<p><strong>${email}</strong> wants to be notified when <strong>${product}</strong> drops.</p>`,
+      html: `
+        <p><strong>Product:</strong> ${product}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Signed up:</strong> ${timestamp} ET</p>
+      `,
     });
+
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
     return NextResponse.json({ error: (err as Error).message }, { status: 500 });
