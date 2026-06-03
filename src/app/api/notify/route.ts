@@ -6,6 +6,7 @@ const PRODUCT_LIST_IDS: Record<string, number> = {
   "Radarskin Kicks": 2,
   "Suzzie Beanie": 4,
   "Radarskin Socks": 5,
+  "Suzzie Lighters": 6,
 };
 
 export async function POST(req: Request) {
