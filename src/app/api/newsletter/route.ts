@@ -2,6 +2,7 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const AUDIENCE_ID = "adf32a04-da17-4f4e-9a96-886a59e32049";
 
 export async function POST(req: Request) {
   try {
@@ -16,6 +17,12 @@ export async function POST(req: Request) {
     const city = req.headers.get("x-vercel-ip-city") || "Unknown";
     const region = req.headers.get("x-vercel-ip-country-region") || "Unknown";
     const country = req.headers.get("x-vercel-ip-country") || "Unknown";
+
+    await resend.contacts.create({
+      audienceId: AUDIENCE_ID,
+      email,
+      unsubscribed: false,
+    });
 
     await resend.emails.send({
       from: "SUZZIESATURN <noreply@suzziesaturn.com>",
