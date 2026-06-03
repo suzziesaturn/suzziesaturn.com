@@ -1,29 +1,45 @@
 "use client";
 import { useState } from "react";
 
-const PLAYLIST_ID = "PLJRyJtlys_y0VRCxkCLSiRUlHy4EthJRh";
-const FIRST_VIDEO = "q4BlN3q5wGY";
+const VIDEOS = [
+  "oCw7wWaZYz4",
+  "j8rJ1rpYBXg",
+  "q4BlN3q5wGY",
+  "n2OhMBS6JpE",
+];
 
 export default function VideoBlock() {
-  const [showPlaylist, setShowPlaylist] = useState(false);
+  const [idx, setIdx] = useState(0);
 
   return (
-    <div className="relative w-full bg-black" style={{ aspectRatio: "16/9" }}>
-      <iframe
-        src={`https://www.youtube.com/embed/${showPlaylist ? `videoseries?list=${PLAYLIST_ID}` : `${FIRST_VIDEO}?rel=0&modestbranding=1`}`}
-        title="SUZZIESATURN"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        className="absolute inset-0 h-full w-full border-0"
-      />
-      {!showPlaylist && (
+    <div className="relative w-full bg-black">
+      <div className="relative" style={{ aspectRatio: "16/9" }}>
+        <iframe
+          key={VIDEOS[idx]}
+          src={`https://www.youtube.com/embed/${VIDEOS[idx]}?rel=0&modestbranding=1`}
+          title="SUZZIESATURN"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 h-full w-full border-0"
+        />
+      </div>
+      <div className="flex items-center justify-between px-6 py-4 bg-black">
         <button
-          onClick={() => setShowPlaylist(true)}
-          className="absolute bottom-4 right-4 bg-black/70 text-white font-sans text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-2 hover:bg-black transition-colors"
+          onClick={() => setIdx(i => (i - 1 + VIDEOS.length) % VIDEOS.length)}
+          className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors"
         >
-          View Playlist →
+          ← Prev
         </button>
-      )}
+        <span className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">
+          {idx + 1} / {VIDEOS.length}
+        </span>
+        <button
+          onClick={() => setIdx(i => (i + 1) % VIDEOS.length)}
+          className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors"
+        >
+          Next →
+        </button>
+      </div>
     </div>
   );
 }
