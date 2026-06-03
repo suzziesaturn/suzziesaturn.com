@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   try {
     const { email, product } = await req.json();
     await resend.emails.send({
-      from: "SUZZIESATURN <onboarding@resend.dev>",
+      from: "SUZZIESATURN <noreply@suzziesaturn.com>",
       to: email,
       subject: `You'll be first for ${product}.`,
       html: `
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
       `,
     });
     await resend.emails.send({
-      from: "SUZZIESATURN <onboarding@resend.dev>",
+      from: "SUZZIESATURN <noreply@suzziesaturn.com>",
       to: "coolemail@suzziesaturn.com",
       subject: `Notify Me: ${product} — ${email}`,
       html: `<p><strong>${email}</strong> wants to be notified when <strong>${product}</strong> drops.</p>`,
