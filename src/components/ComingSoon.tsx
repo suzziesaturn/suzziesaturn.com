@@ -1,10 +1,10 @@
 import NotifyBtn from "@/components/NotifyBtn";
 
 const items = [
-  { label: "Kicks", name: "Radarskin Kicks", img: "/images/coming-soon-kicks.jpg" },
-  { label: "Denim Jacket", name: "Suzzie Denim", img: null },
-  { label: "Crossbody", name: "Crossbody Bag", img: null },
-  { label: "Duffle", name: "Suzzie Duffle", img: null },
+  { label: "Kicks", name: "Radarskin Kicks", img: "/images/coming-soon-kicks-2.jpg", hoverImg: "/images/coming-soon-kicks.jpg" },
+  { label: "Denim Jacket", name: "Suzzie Denim", img: null, hoverImg: null },
+  { label: "Crossbody", name: "Crossbody Bag", img: null, hoverImg: null },
+  { label: "Duffle", name: "Suzzie Duffle", img: null, hoverImg: null },
 ];
 
 export default function ComingSoon() {
@@ -17,9 +17,12 @@ export default function ComingSoon() {
       <div className="grid grid-cols-2 sm:grid-cols-4" style={{ gap: "clamp(12px,2vw,24px)" }}>
         {items.map((item) => (
           <div key={item.name} className="flex flex-col gap-3">
-            <div className="relative overflow-hidden bg-[#f0f0f0]" style={{ aspectRatio: "3/4" }}>
+            <div className="group relative overflow-hidden bg-[#f0f0f0]" style={{ aspectRatio: "3/4" }}>
               {item.img ? (
-                <img src={item.img} alt={item.name} className="h-full w-full object-cover" />
+                <>
+                  <img src={item.img} alt={item.name} className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0" />
+                  {item.hoverImg && <img src={item.hoverImg} alt={item.name} className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100" />}
+                </>
               ) : (
                 <div className="flex h-full w-full items-center justify-center font-sans text-[10px] font-semibold uppercase tracking-[0.1em] text-[#bbb]">{item.label}</div>
               )}
