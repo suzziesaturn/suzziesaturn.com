@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
+import ComingSoon from "@/components/ComingSoon";
 
 export default function ProductsPage() {
   return (
@@ -16,6 +17,7 @@ export default function ProductsPage() {
           ))}
         </div>
       </main>
+      <ComingSoon />
       <Footer />
     </>
   );
