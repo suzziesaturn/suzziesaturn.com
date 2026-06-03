@@ -3,7 +3,7 @@ import NotifyBtn from "@/components/NotifyBtn";
 const items = [
   { label: "Kicks", name: "Radarskin Kicks", img: "/images/coming-soon-kicks-2.jpg", hoverImg: "/images/coming-soon-kicks.jpg" },
   { label: "Beanie", name: "Suzzie Beanie", img: "/images/suzzie-beanie-2.jpg", hoverImg: "/images/suzzie-beanie-1.jpg" },
-  { label: "Crossbody", name: "Crossbody Bag", img: null, hoverImg: null },
+  { label: "Socks", name: "Radarskin Socks", img: "/images/radarskin-socks-1.jpg", hoverImg: "/images/radarskin-socks-2.jpg" },
   { label: "Duffle", name: "Suzzie Duffle", img: null, hoverImg: null },
 ];
 
