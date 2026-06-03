@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, Archivo } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart";
+import { Analytics } from "@vercel/analytics/react";
 import CartDrawer from "@/components/CartDrawer";
 
 const bodoni = Bodoni_Moda({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${bodoni.variable} ${archivo.variable}`}>
       <body className="bg-white text-black antialiased">
+        <Analytics />
         <CartProvider>
           {children}
           <CartDrawer />
