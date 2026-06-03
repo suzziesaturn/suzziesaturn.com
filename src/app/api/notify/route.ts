@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 
 const BREVO_API_KEY = process.env.BREVO_API_KEY!;
-const LIST_ID = 1;
+
+const PRODUCT_LIST_IDS: Record<string, number> = {
+  "Radarskin Kicks": 2,
+};
 
 export async function POST(req: Request) {
   try {
@@ -17,15 +20,14 @@ export async function POST(req: Request) {
     const region = req.headers.get("x-vercel-ip-country-region") || "Unknown";
     const country = req.headers.get("x-vercel-ip-country") || "Unknown";
 
+    const listId = PRODUCT_LIST_IDS[product] || 1;
+
     await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "api-key": BREVO_API_KEY,
-      },
+      headers: { "Content-Type": "application/json", "api-key": BREVO_API_KEY },
       body: JSON.stringify({
         email,
-        listIds: [LIST_ID],
+        listIds: [listId],
         updateEnabled: true,
         attributes: {
           SIGNUP_DATE: timestamp,
@@ -41,10 +43,7 @@ export async function POST(req: Request) {
 
     await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "api-key": BREVO_API_KEY,
-      },
+      headers: { "Content-Type": "application/json", "api-key": BREVO_API_KEY },
       body: JSON.stringify({
         sender: { name: "SUZZIESATURN", email: "noreply@suzziesaturn.com" },
         to: [{ email }],
@@ -61,10 +60,7 @@ export async function POST(req: Request) {
 
     await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "api-key": BREVO_API_KEY,
-      },
+      headers: { "Content-Type": "application/json", "api-key": BREVO_API_KEY },
       body: JSON.stringify({
         sender: { name: "SUZZIESATURN", email: "noreply@suzziesaturn.com" },
         to: [{ email: "coolemail@suzziesaturn.com" }],
