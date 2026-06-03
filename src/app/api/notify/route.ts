@@ -4,6 +4,8 @@ const BREVO_API_KEY = process.env.BREVO_API_KEY!;
 
 const PRODUCT_LIST_IDS: Record<string, number> = {
   "Radarskin Kicks": 2,
+  "Suzzie Beanie": 4,
+  "Radarskin Socks": 5,
 };
 
 export async function POST(req: Request) {
