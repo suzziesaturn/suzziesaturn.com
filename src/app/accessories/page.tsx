@@ -27,6 +27,14 @@ export default function AccessoriesPage() {
               <p className="font-sans text-[11px] font-bold uppercase tracking-[0.12em]">Suzzie Beanie</p>
               <NotifyBtn product="Suzzie Beanie" />
             </div>
+            <div className="flex flex-col gap-3">
+              <div className="group relative overflow-hidden bg-[#f0f0f0]" style={{ aspectRatio: "3/4" }}>
+                <img src="/images/suzzie-lighters-1.png" alt="Suzzie Lighters" className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0" />
+                <img src="/images/suzzie-lighters-2.png" alt="Suzzie Lighters" className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              </div>
+              <p className="font-sans text-[11px] font-bold uppercase tracking-[0.12em]">Suzzie Lighters</p>
+              <NotifyBtn product="Suzzie Lighters" />
+            </div>
           </div>
         </div>
       </main>
