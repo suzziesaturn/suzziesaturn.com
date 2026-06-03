@@ -12,6 +12,11 @@ export async function POST(req: Request) {
       timeStyle: "short",
     });
 
+    const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || "Unknown";
+    const city = req.headers.get("x-vercel-ip-city") || "Unknown";
+    const region = req.headers.get("x-vercel-ip-country-region") || "Unknown";
+    const country = req.headers.get("x-vercel-ip-country") || "Unknown";
+
     await resend.emails.send({
       from: "SUZZIESATURN <noreply@suzziesaturn.com>",
       to: email,
@@ -33,6 +38,8 @@ export async function POST(req: Request) {
         <p><strong>Product:</strong> ${product}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Signed up:</strong> ${timestamp} ET</p>
+        <p><strong>Location:</strong> ${city}, ${region}, ${country}</p>
+        <p><strong>IP:</strong> ${ip}</p>
       `,
     });
 
