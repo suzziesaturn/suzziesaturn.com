@@ -17,7 +17,7 @@ export default function ProductsPage() {
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
-        <ProductVideos videos={["DfIl2SOJYsU", "jtAun_S5ZWw", "FHfTwzLNTus", "tZC9CmNmZRw", "JxIC8XgPuck"]} />
+        <ProductVideos videos={["DfIl2SOJYsU", "jtAun_S5ZWw", "FHfTwzLNTus", "tZC9CmNmZRw", "JxIC8XgPuck", "iNVgYzj8Sk8", "t6HOxtLrRew", "mLAp6oF5L88", "pbMeW8nT-1E", "7givXGAHlvY", "RTaFJoFUWI8", "tX8RqmlLAU0", "c7sBlX1WznQ", "pIMsvMWIpL0", "YF_NvqMkh_U", "WDRSyV5oqac", "iSygWxxBh8k"]} />
       </main>
       <div style={{ marginTop: "-32px" }}><div style={{ marginTop: "-48px" }}><ComingSoon /></div></div>
       <Footer />

@@ -1,23 +1,16 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { products } from "@/lib/products";
-import ProductCard from "@/components/ProductCard";
+import ProductVideos from "@/components/ProductVideos";
 
 export default function TeesPage() {
-  const filtered = products.filter(p => p.category === "Tops");
   return (
     <>
       <Header />
-      <main className="min-h-screen px-5 py-16 sm:px-8 sm:py-24">
+      <main className="min-h-screen px-5 pt-16 pb-0 sm:px-8 sm:pt-24 sm:pb-0">
         <p className="mb-4 text-[0.65rem] font-bold uppercase tracking-[0.3em] text-black/40">Shop</p>
         <h1 className="font-display text-5xl uppercase leading-none tracking-tight mb-12">Tees</h1>
-        {filtered.length ? (
-          <div className="grid grid-cols-2 gap-x-4 gap-y-12 sm:gap-x-6 md:grid-cols-3 xl:grid-cols-4">
-            {filtered.map(p => <ProductCard key={p.id} product={p} />)}
-          </div>
-        ) : (
-          <p className="font-display text-2xl italic opacity-30">Coming soon.</p>
-        )}
+        <p className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] opacity-40">Coming Soon</p>
+        <ProductVideos videos={["RTaFJoFUWI8", "pIMsvMWIpL0", "iSygWxxBh8k"]} />
       </main>
       <Footer />
     </>

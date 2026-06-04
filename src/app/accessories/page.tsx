@@ -16,7 +16,7 @@ export default function AccessoriesPage() {
         <div className="grid grid-cols-2 gap-x-4 gap-y-12 sm:gap-x-6 md:grid-cols-3 xl:grid-cols-4 items-start">
           {filtered.map(p => <ProductCard key={p.id} product={p} />)}
         </div>
-        <ProductVideos videos={["DfIl2SOJYsU", "jtAun_S5ZWw", "FHfTwzLNTus", "tZC9CmNmZRw"]} />
+        <ProductVideos videos={["DfIl2SOJYsU", "jtAun_S5ZWw", "FHfTwzLNTus", "tZC9CmNmZRw", "iNVgYzj8Sk8", "t6HOxtLrRew", "JxIC8XgPuck", "tX8RqmlLAU0", "c7sBlX1WznQ", "YF_NvqMkh_U", "WDRSyV5oqac", "iSygWxxBh8k"]} />
         <div style={{ marginTop: "clamp(24px,3vw,40px)" }}>
           <p className="mb-4 font-sans text-[0.65rem] font-bold uppercase tracking-[0.3em] text-black/40">Next Up</p>
           <h2 className="font-display text-4xl uppercase leading-none tracking-tight mb-10">Coming Soon</h2>
