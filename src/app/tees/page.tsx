@@ -10,7 +10,7 @@ export default function TeesPage() {
         <p className="mb-4 text-[0.65rem] font-bold uppercase tracking-[0.3em] text-black/40">Shop</p>
         <h1 className="font-display text-5xl uppercase leading-none tracking-tight mb-12">Tees</h1>
         <p className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] opacity-40">Coming Soon</p>
-        <ProductVideos videos={["RTaFJoFUWI8", "pIMsvMWIpL0", "iSygWxxBh8k"]} />
+        <ProductVideos videos={["RTaFJoFUWI8", "pIMsvMWIpL0", "iSygWxxBh8k", "kS9JMjb4TO0"]} />
       </main>
       <Footer />
     </>
