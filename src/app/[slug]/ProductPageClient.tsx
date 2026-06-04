@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Product } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 import ProductVideos from "@/components/ProductVideos";
+import Footer from "@/components/Footer";
 
 export default function ProductPageClient({ product }: { product: Product }) {
   const [activeImg, setActiveImg] = useState(0);
@@ -135,6 +136,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
         </div>
       </div>
       <ProductVideos videos={videos} />
+      <Footer />
     </>
   );
 }
