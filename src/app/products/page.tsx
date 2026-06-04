@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import ComingSoon from "@/components/ComingSoon";
+import ProductVideos from "@/components/ProductVideos";
 
 export default function ProductsPage() {
   return (
@@ -16,6 +17,7 @@ export default function ProductsPage() {
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
+              <ProductVideos videos={["DfIl2SOJYsU", "jtAun_S5ZWw", "FHfTwzLNTus", "tZC9CmNmZRw", "JxIC8XgPuck"]} />
       </main>
       <ComingSoon />
       <Footer />
