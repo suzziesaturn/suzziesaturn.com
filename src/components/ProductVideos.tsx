@@ -8,7 +8,7 @@ export default function ProductVideos({ videos }: ProductVideosProps) {
   if (!videos || videos.length === 0) return null;
 
   return (
-    <section className="border-t border-[#eee]" style={{ padding: "clamp(32px,5vw,64px)" }}>
+    <section className="border-t border-[#eee]" style={{ padding: "clamp(24px,3vw,40px) clamp(32px,5vw,64px)" }}>
       <p className="font-sans text-[10px] font-bold uppercase tracking-[0.25em] opacity-40 mb-8">
         In The Wild
       </p>
