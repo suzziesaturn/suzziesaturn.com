@@ -10,7 +10,7 @@ export default function HoodiesPage() {
         <p className="mb-4 text-[0.65rem] font-bold uppercase tracking-[0.3em] text-black/40">Shop</p>
         <h1 className="font-display text-5xl uppercase leading-none tracking-tight mb-12">Hoodies</h1>
         <p className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] opacity-40">Coming Soon</p>
-        <ProductVideos videos={["mLAp6oF5L88", "pbMeW8nT-1E", "7givXGAHlvY", "pIMsvMWIpL0"]} />
+        <ProductVideos videos={["mLAp6oF5L88", "pbMeW8nT-1E", "7givXGAHlvY", "pIMsvMWIpL0", "RWVlU2Rj5aE"]} />
       </main>
       <Footer />
     </>
