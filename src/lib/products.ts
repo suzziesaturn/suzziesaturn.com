@@ -11,6 +11,7 @@ export interface Product {
   details: { label: string; value: string }[];
   sizes: { label: string; priceId: string }[];
   hasImage: boolean;
+  videos?: string[];
 }
 
 type RawProduct = Omit<Product, "hasImage">;
