@@ -16,7 +16,7 @@ export default function FootwearPage() {
         <div className="grid grid-cols-2 gap-x-4 gap-y-12 sm:gap-x-6 md:grid-cols-3 xl:grid-cols-4 items-start">
           {filtered.map(p => <ProductCard key={p.id} product={p} />)}
         </div>
-        <ProductVideos videos={["tZC9CmNmZRw"]} />
+        <ProductVideos videos={["tZC9CmNmZRw", "JxIC8XgPuck"]} />
         <div style={{ marginTop: "clamp(24px,3vw,40px)" }}>
           <p className="mb-4 font-sans text-[0.65rem] font-bold uppercase tracking-[0.3em] text-black/40">Next Up</p>
           <h2 className="font-display text-4xl uppercase leading-none tracking-tight mb-10">Coming Soon</h2>
