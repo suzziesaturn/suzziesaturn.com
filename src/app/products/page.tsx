@@ -19,7 +19,7 @@ export default function ProductsPage() {
         </div>
         <ProductVideos videos={["DfIl2SOJYsU", "jtAun_S5ZWw", "FHfTwzLNTus", "tZC9CmNmZRw", "JxIC8XgPuck"]} />
       </main>
-      <div style={{ marginTop: "-32px" }}><ComingSoon /></div>
+      <div style={{ marginTop: "-32px" }}><div style={{ marginTop: "-48px" }}><ComingSoon /></div></div>
       <Footer />
     </>
   );
