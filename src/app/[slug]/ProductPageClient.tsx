@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { Product } from "@/lib/products";
 import { useCart } from "@/lib/cart";
+import ProductVideos from "@/components/ProductVideos";
 
 export default function ProductPageClient({ product }: { product: Product }) {
   const [activeImg, setActiveImg] = useState(0);
@@ -15,6 +16,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
   const images = product.images?.length ? product.images : [product.image];
   const sizes = product.sizes;
   const isSingleSize = sizes.length === 1;
+  const videos = product.videos;
 
   function getSelected() {
     const label = selectedSize || sizes[0]?.label;
@@ -132,6 +134,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
           </div>
         </div>
       </div>
+      <ProductVideos videos={videos} />
     </>
   );
 }
