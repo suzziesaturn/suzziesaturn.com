@@ -17,7 +17,7 @@ export default function AccessoriesPage() {
           {filtered.map(p => <ProductCard key={p.id} product={p} />)}
         </div>
         <ProductVideos videos={["DfIl2SOJYsU"]} />
-        <div style={{ marginTop: "clamp(64px,8vw,120px)" }}>
+        <div style={{ marginTop: "clamp(32px,4vw,56px)" }}>
           <p className="mb-4 font-sans text-[0.65rem] font-bold uppercase tracking-[0.3em] text-black/40">Next Up</p>
           <h2 className="font-display text-4xl uppercase leading-none tracking-tight mb-10">Coming Soon</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
