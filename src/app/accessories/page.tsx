@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import NotifyBtn from "@/components/NotifyBtn";
+import ProductVideos from "@/components/ProductVideos";
 
 export default function AccessoriesPage() {
   const filtered = products.filter(p => p.category === "Accessories");
@@ -15,6 +16,7 @@ export default function AccessoriesPage() {
         <div className="grid grid-cols-2 gap-x-4 gap-y-12 sm:gap-x-6 md:grid-cols-3 xl:grid-cols-4">
           {filtered.map(p => <ProductCard key={p.id} product={p} />)}
         </div>
+        <ProductVideos videos={["DfIl2SOJYsU"]} />
         <div style={{ marginTop: "clamp(64px,8vw,120px)" }}>
           <p className="mb-4 font-sans text-[0.65rem] font-bold uppercase tracking-[0.3em] text-black/40">Next Up</p>
           <h2 className="font-display text-4xl uppercase leading-none tracking-tight mb-10">Coming Soon</h2>
