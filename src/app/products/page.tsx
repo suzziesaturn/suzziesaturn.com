@@ -18,8 +18,10 @@ export default function ProductsPage() {
           ))}
         </div>
         <ProductVideos videos={["DfIl2SOJYsU", "jtAun_S5ZWw", "FHfTwzLNTus", "tZC9CmNmZRw", "JxIC8XgPuck"]} />
+        <div style={{ marginTop: "clamp(24px,3vw,40px)" }}>
+          <ComingSoon />
+        </div>
       </main>
-      <ComingSoon />
       <Footer />
     </>
   );
